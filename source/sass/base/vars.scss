@@ -1,0 +1,41 @@
+// viewports
+$desktop-width: 1024px;
+$pre-desktop-width: 1023px;
+$tablet-width: 768px;
+$pre-tablet-width: 767px;
+$mobile-width: 320px;
+
+// width limit
+$content-max-width: 1920px;
+
+//
+// colors
+//
+
+// lcg (light colors' group)
+$lcg-1: #ffffff;
+// $lcg-2: rgba(255, 255, 255, 0.2);
+// $lcg-3: #c9ccd4;
+// $lcg-4: #272727;
+// $lcg-5: #f6f6f6;
+// $lcg-6: #e6e6e6;
+// $lcg-7: #f6f7f9;
+
+// mcg (middle colors' group)
+// $mcg-1: #0ad9c6;
+// $mcg-2: #7beee2;
+// $mcg-3: #0ad95f;
+// $mcg-4: #0a84d9;
+// $mcg-5: #d90a1d;
+
+// dcg (dark colors' group)
+$dcg-1: #666666;
+// $dcg-2: #1c1c1c;
+// $dcg-3: #0e0e0e;
+// $dcg-4: #48494d;
+// $dcg-5: #1f1f1f;
+// $dcg-6: rgba(0, 0, 0, 0.7);
+// $dcg-7: rgba(0, 0, 0, 0.5);
+// $dcg-8: #141517;
+// $dcg-9: #131314;
+// $dcg-10: #070707;

@@ -1,0 +1,63 @@
+h1 {
+    font-family:
+    "robotocondensed",
+    "Arial",
+    sans-serif;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+h2 {
+  font-family:
+    "robotocondensed",
+    "Arial",
+    sans-serif;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+h3 {
+  font-family:
+    "ptmono",
+    "Courier",
+    monospace;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  @include zero-edges;
+
+  font-family:
+    "ptmono",
+    "Courier",
+    monospace;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:
+    min-content,
+    1fr,
+    min-content;
+
+  min-height: 100vh;
+  min-width: $mobile-width;
+  background-color: $lcg-1;
+  color: $dcg-1;
+}

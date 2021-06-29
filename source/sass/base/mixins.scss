@@ -1,0 +1,121 @@
+@mixin link-base-style {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  letter-spacing: inherit;
+}
+
+@mixin background-properties {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin pseudo-properties($index: 1) {
+  content: "";
+  position: absolute;
+  z-index: $index;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(100%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin zero-edges {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin centering-margin {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin absolute-centering {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin column-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin centering-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin centering-grid {
+  display: grid;
+  place-items: center;
+}
+
+@mixin button-hover-focus {
+  &:hover,
+  &:focus {
+    background-color: $mcg-2;
+  }
+}
+
+@mixin absolute-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@mixin common-text-style-kit {
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: $dcg-5;
+
+  @media (min-width: $desktop-width) {
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+
+@mixin heading-text-style-kit {
+  @media (max-width: $pre-desktop-width) {
+    font-size: 24px;
+    line-height: 41px;
+  }
+}
+
+@mixin content-text-style-kit {
+  font-size: 22px;
+  line-height: 34px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  color: $dcg-1;
+}
+
+@mixin padded-box($width: 100%) {
+  position: relative;
+  width: $width;
+  height: 0;
+  overflow: hidden;
+}
+
+@mixin content-in-padded-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
