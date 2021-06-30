@@ -1,0 +1,100 @@
+.contacts {
+  @media (min-width: $desktop-width) {
+    margin-right: 2.7%;
+    padding-right: 10px;
+    color: $lcg-1;
+  }
+}
+
+.contacts__list {
+  display: flex;
+  flex-wrap: wrap;
+  width: max-content;
+
+  @media (min-width: $desktop-width) {
+    padding-top: 12px;
+  }
+}
+
+.contacts__item {
+  margin-bottom: 15px;
+
+  &:not(:last-child) {
+    @media (min-width: $desktop-width) {
+      margin-right: 88px;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      margin-right: 33px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      margin-right: 23px;
+    }
+  }
+}
+
+.contacts__link {
+  @include link-base-style;
+
+  @media (min-width: $desktop-width) {
+    font-family:
+      "ptmono",
+      "Courier",
+      monospace;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+    color: inherit;
+  }
+
+  &--mail {
+    @media (min-width: $desktop-width) {
+      padding-top: 4px;
+    }
+  }
+
+  span {
+    @media (max-width: $pre-desktop-width) {
+      @include visually-hidden;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    @media (min-width: $desktop-width) {
+      text-decoration: underline;
+    }
+
+    .contacts__link-svg {
+      --icon-color: #{$mcg-2};
+    }
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.contacts__link-svg {
+  --icon-color: #{$mcg-1};
+
+  fill: --icon-color;
+
+  @media (min-width: $desktop-width) {
+    margin-right: 10px;
+  }
+}
+
+.contacts__phone-call-svg {
+  @media (min-width: $desktop-width) {
+    margin-right: 5px;
+    transform: translateY(4px);
+  }
+}
+
+.contacts__envelope-svg {
+  @media (min-width: $desktop-width) {
+    transform: translate(0, 3px);
+  }
+}

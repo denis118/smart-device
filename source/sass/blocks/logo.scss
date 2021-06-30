@@ -1,0 +1,9 @@
+.logo {
+  padding-right: 20px;
+  margin-right: auto;
+
+  @media (max-width: $pre-tablet-width) {
+    width: 38px;
+    height: 38px;
+  }
+}

@@ -2,7 +2,7 @@
   display: block;
   position: relative;
   text-decoration: none;
-  letter-spacing: inherit;
+  color: inherit;
 }
 
 @mixin background-properties {
@@ -38,6 +38,10 @@
 @mixin centering-margin {
   margin-right: auto;
   margin-left: auto;
+}
+
+@mixin centering-padding($contentwidth: 100%) {
+  padding: calc((100% - #{$contentwidth}) / 2);
 }
 
 @mixin absolute-centering {

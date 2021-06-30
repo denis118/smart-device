@@ -1,0 +1,9 @@
+.hidden-entity {
+  display: none;
+}
+
+.hidden-before-desktop {
+  @media (max-width: $pre-desktop-width) {
+    display: none;
+  }
+}

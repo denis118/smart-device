@@ -1,0 +1,19 @@
+.ring-trigger {
+  @include link-base-style;
+
+  font-family:
+    "robotocondensed",
+    "Arial",
+    sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $lcg-1;
+
+  margin-top: 3px;
+  padding: 15px 18px 8px 17px;
+  border: 1px solid $lcg-1;
+  border-radius: 5px;
+}
