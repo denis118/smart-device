@@ -123,3 +123,15 @@
   width: 100%;
   height: auto;
 }
+
+@mixin footer-link-active-states {
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: none;
+    opacity: 1;
+  }
+}

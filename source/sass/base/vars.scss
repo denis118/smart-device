@@ -22,7 +22,7 @@ $lcg-1: #ffffff;
 // $lcg-7: #f6f7f9;
 
 // mcg (middle colors' group)
-$mcg-1: #00B2FF;
+$mcg-1: #00b2ff;
 $mcg-2: #FF4D00;
 // $mcg-3: #0ad95f;
 // $mcg-4: #0a84d9;
@@ -30,12 +30,17 @@ $mcg-2: #FF4D00;
 
 // dcg (dark colors' group)
 $dcg-1: #666666;
-// $dcg-2: #1c1c1c;
-// $dcg-3: #0e0e0e;
-// $dcg-4: #48494d;
+$dcg-2: rgba(98, 105, 98, 0.2);
+$dcg-3: #1b2d37;
+$dcg-4: #cdcdcd;
 // $dcg-5: #1f1f1f;
 // $dcg-6: rgba(0, 0, 0, 0.7);
 // $dcg-7: rgba(0, 0, 0, 0.5);
 // $dcg-8: #141517;
 // $dcg-9: #131314;
 // $dcg-10: #070707;
+
+
+// other
+
+$logo-in-footer-width: 216px;

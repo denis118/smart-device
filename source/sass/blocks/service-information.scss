@@ -1,1 +1,135 @@
 // .service-information {}
+
+.service-information__box {
+  @media (min-width: $desktop-width) {
+    @include centering-padding(73.5417%);
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    @include centering-padding(93.5065%);
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    @include centering-padding;
+    display: flex;
+  }
+
+  &--upper {
+    display: grid;
+
+    @media (min-width: $desktop-width) {
+      grid-template-columns: min-content 1fr;
+      grid-template-rows: repeat(2, min-content);
+      column-gap: 5%;
+
+      padding-top: 65px;
+      padding-bottom: 55px;
+      border-bottom: 1px solid $dcg-2;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      padding-top: 19px;
+      padding-bottom: 10px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      padding-top: 46px;
+      padding-bottom: 10px;
+    }
+  }
+
+  &--lower {
+    font-size: 13px;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $dcg-3;
+
+    display: flex;
+    align-items: center;
+
+    @media (min-width: $desktop-width) {
+      padding-top: 14px;
+      padding-bottom: 10px;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      padding-top: 21px;
+      padding-bottom: 10px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      padding-top: 28px;
+      padding-bottom: 10px;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+      opacity: 0.5;
+    }
+
+    a {
+      opacity: 0.5;
+
+      @include footer-link-active-states;
+    }
+  }
+}
+
+.service-information__logo {
+  @media (min-width: $desktop-width) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+}
+
+.service-information__socials {
+  @media (min-width: $desktop-width) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+}
+
+.service-information__accordeon {
+  @media (min-width: $desktop-width) {
+    grid-column-start: 2;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
+
+.service-information__rights {
+  display: flex;
+  align-items: center;
+
+  width: 36.5%;
+  margin-right: 10%;
+
+  p {
+    flex-shrink: 0;
+
+    &:first-child {
+      @media (min-width: $desktop-width) {
+        margin-right: 13.5%;
+      }
+    }
+
+    &:last-child {
+      @media (min-width: $desktop-width) {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.service-information__privacy-terms-link {
+  @media (min-width: $desktop-width) {
+    margin-right: 20%;
+  }
+}

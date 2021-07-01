@@ -36,8 +36,6 @@
 }
 
 .contacts__link {
-  @include link-base-style;
-
   @media (min-width: $desktop-width) {
     font-family:
       "ptmono",

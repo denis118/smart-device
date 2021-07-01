@@ -1,1 +1,38 @@
-// .socials {}
+.socials {
+  max-width: $logo-in-footer-width;
+
+  @media (min-width: $desktop-width) {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+.socials__item {
+  margin-bottom: 10px;
+
+  &:not(:last-child) {
+    @media (min-width: $desktop-width) {
+      margin-right: 15.54px;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .socials__svg {
+      --icon-color: #{$mcg-1};
+    }
+  }
+
+  &:active {
+    .socials__svg {
+      opacity: 0.5;
+    }
+  }
+}
+
+.socials__svg {
+  --icon-color: #{$dcg-4};
+
+  fill: --icon-color;
+}

@@ -1,1 +1,76 @@
-// .accordeon {}
+.accordeon {
+  font-family:
+    "ptmono",
+    "Courier",
+    monospace;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: 400;
+  color: inherit;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, min-content);
+  grid-auto-flow: column;
+
+  color: $dcg-3;
+
+  @media (min-width: $desktop-width) {
+    column-gap: 5%;
+  }
+
+  a {
+    opacity: 0.5;
+
+    @include footer-link-active-states;
+  }
+}
+
+.accordeon__btn {
+  font-family:
+    "robotocondensed",
+    "Arial",
+    sans-serif;
+  font-size: 15px;
+  line-height: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: inherit;
+
+  width: max-content;
+  margin-bottom: 29px;
+  padding: 0;
+  background-color: transparent;
+  cursor: auto;
+}
+
+.accordeon__site-map {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.accordeon__list-item {
+  &:nth-child(2n+1) {
+    @media (min-width: $desktop-width) {
+      margin-right: auto;
+    }
+  }
+}
+
+.accordeon__map-item {
+  &--accessories,
+  &--delivery,
+  &--contacts {
+    line-height: 26px;
+    letter-spacing: 0.03em;
+  }
+}
+
+.accordeon__address {
+  font-style: normal;
+}
+
+.accordeon__location {
+  opacity: 0.5;
+}

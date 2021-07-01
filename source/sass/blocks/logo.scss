@@ -9,5 +9,13 @@
     }
   }
 
-  // &--footer {}
+  &--footer {
+    box-sizing: content-box;
+    width: $logo-in-footer-width;
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 54px;
+      padding-right: 20px;
+    }
+  }
 }

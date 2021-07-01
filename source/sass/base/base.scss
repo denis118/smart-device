@@ -67,6 +67,10 @@ main {
   background-color: #000;
 }
 
+footer {
+  align-self: end;
+}
+
 img {
   display: block;
 }
@@ -92,6 +96,10 @@ img {
 .button {
   border: none;
   outline: none;
+}
+
+.link {
+  @include link-base-style;
 }
 
 .link,
