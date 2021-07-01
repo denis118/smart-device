@@ -8,6 +8,7 @@
 
 .contacts__list {
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
   width: max-content;
 
@@ -63,7 +64,9 @@
   &:hover,
   &:focus {
     @media (min-width: $desktop-width) {
-      text-decoration: underline;
+      span {
+        text-decoration: underline;
+      }
     }
 
     .contacts__link-svg {
@@ -91,10 +94,30 @@
     margin-right: 5px;
     transform: translateY(4px);
   }
+
+  @media (max-width: $pre-desktop-width) {
+    width: 24px;
+    height: 24px;
+    transform: translateY(12px);
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    transform: translateY(5px);
+  }
 }
 
 .contacts__envelope-svg {
   @media (min-width: $desktop-width) {
-    transform: translate(0, 3px);
+    transform: translateY(3px);
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    width: 25.33px;
+    height: 18.67px;
+    transform: translateY(15px);
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    transform: translateY(8px);
   }
 }
