@@ -19,12 +19,16 @@ body {
   line-height: 22px;
   font-weight: 400;
 
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows:
-    min-content,
-    1fr,
-    min-content;
+  // display: grid;
+  // grid-template-columns: 1fr;
+  // grid-template-rows:
+  //   min-content,
+  //   1fr,
+  //   min-content;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   min-height: 100vh;
   min-width: $mobile-width;
@@ -68,7 +72,10 @@ main {
 }
 
 footer {
-  align-self: end;
+  // align-self: end;
+
+  // outline: 1px dashed red;
+  // outline-offset: -1px;
 }
 
 img {

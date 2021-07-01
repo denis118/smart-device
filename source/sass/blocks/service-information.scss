@@ -20,7 +20,7 @@
     @media (min-width: $desktop-width) {
       grid-template-columns: min-content 1fr;
       grid-template-rows: repeat(2, min-content);
-      column-gap: 5%;
+      column-gap: 13.1%;
 
       padding-top: 65px;
       padding-bottom: 55px;
@@ -49,8 +49,8 @@
     align-items: center;
 
     @media (min-width: $desktop-width) {
-      padding-top: 14px;
-      padding-bottom: 10px;
+      padding-top: 7px;
+      padding-bottom: 13px;
     }
 
     @media (max-width: $pre-desktop-width) {
@@ -109,7 +109,7 @@
   align-items: center;
 
   width: 36.5%;
-  margin-right: 10%;
+  margin-right: 5.8%;
 
   p {
     flex-shrink: 0;
@@ -130,6 +130,12 @@
 
 .service-information__privacy-terms-link {
   @media (min-width: $desktop-width) {
-    margin-right: 20%;
+    margin-right: 28%;
+  }
+}
+
+.service-information__developed-by {
+  @media (min-width: $desktop-width) {
+    transform: translateX(10px);
   }
 }

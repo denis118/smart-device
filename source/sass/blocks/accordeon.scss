@@ -9,14 +9,14 @@
   color: inherit;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr max-content;
   grid-template-rows: repeat(2, min-content);
   grid-auto-flow: column;
 
   color: $dcg-3;
 
   @media (min-width: $desktop-width) {
-    column-gap: 5%;
+    column-gap: 10%;
   }
 
   a {
@@ -35,11 +35,11 @@
   line-height: 16px;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.03em;
   color: inherit;
 
   width: max-content;
-  margin-bottom: 29px;
+  margin-bottom: 25px;
   padding: 0;
   background-color: transparent;
   cursor: auto;
@@ -51,9 +51,14 @@
 }
 
 .accordeon__list-item {
+  // @media (min-width: $desktop-width) {
+  //   margin-top: 15px;
+  // }
+
+
   &:nth-child(2n+1) {
     @media (min-width: $desktop-width) {
-      margin-right: auto;
+      margin-right: 13.2%;
     }
   }
 }
