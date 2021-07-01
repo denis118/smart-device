@@ -25,7 +25,7 @@
             ./img/content/logo@2x.webp 2x
           ">
 
-        <img class="logo__img" width="202" height="52" alt="Логотип сайта" src="./img/content/logo.png" srcset="
+        <img width="202" height="52" alt="Логотип сайта" src="./img/content/logo.png" srcset="
             ./img/content/logo@2x.png 2x
           ">
       </picture>
@@ -57,7 +57,126 @@
   </header>
 
   <main></main>
-  <footer></footer>
+  <footer>
+    <section class="service-information">
+      <h3 class="visually-hidden">Служебная информация</h3>
+
+      <div class="service-information__box service-information__box--upper">
+        <a class="service-information__logo logo logo--footer">
+          <picture>
+            <source type="image/webp" srcset="
+                ./img/content/logo-footer.webp 1x,
+                ./img/content/logo-footer@2x.webp 2x
+              ">
+
+            <img width="216" height="52" alt="Логотип сайта" src="./img/content/logo-footer.png" srcset="
+                ./img/content/logo-footer@2x.png 2x
+              ">
+          </picture>
+        </a>
+
+        <div class="service-information__rights hidden-on-desktop">
+          <p>1999-2018 SD Service Devices</p>
+        </div>
+
+        <ul class="service-information__socials socials list">
+          <li class="socials__item socials__item--facebook">
+            <a class="socials__link link" href="#!">
+              <span class="visually-hidden">
+                Ссылка на аккаунт в Фейсбук
+              </span>
+
+              <svg class="socials__svg socials__svg--facebook" width="27" height="27" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" id="cross-in-nav-svg">
+                <use xlink:href="#icon-facebook"></use>
+              </svg>
+            </a>
+          </li>
+
+          <li class="socials__item socials__item--odnoklassniki">
+            <a class="socials__link link" href="#!">
+              <span class="visually-hidden">
+                Ссылка на аккаунт в Одноклассниках
+              </span>
+
+              <svg class="socials__svg socials__svg--odnoklassniki" width="27" height="26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" id="cross-in-nav-svg">
+                <use xlink:href="#icon-odnoklassniki"></use>
+              </svg>
+            </a>
+          </li>
+
+          <li class="socials__item socials__item--vkontakte">
+            <a class="socials__link link" href="#!">
+              <span class="visually-hidden">
+                Ссылка на аккаунт в ВКонтакте
+              </span>
+
+              <svg class="socials__svg socials__svg--vkontakte" width="27" height="26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" id="cross-in-nav-svg">
+                <use xlink:href="#icon-vkontakte"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <div class="service-information__accordeon accordeon">
+          <button class="accordeon__btn" type="button" aria-label="Кнопка для раскрытия или скрытия списка разделов сайта">Разделы сайта</button>
+          <div class="accordeon__content animated">
+            <ul class="accordeon__site-map list">
+              <li class="accordeon__map-item accordeon__map-item--about">
+                <a class="accordeon__map-link" href="#!" aria-label="Ссылка на раздел">О компании</a>
+              </li>
+
+              <li class="accordeon__map-item accordeon__map-item--products">
+                <a class="accordeon__map-link" href="#!" aria-label="Ссылка на раздел">Продукты</a>
+              </li>
+
+              <li class="accordeon__map-item accordeon__map-item--production">
+                <a class="accordeon__map-link" href="#!" aria-label="Ссылка на раздел">Производство печатных плат</a>
+              </li>
+
+              <li class="accordeon__map-item accordeon__map-item--assembly">
+                <a class="accordeon__map-link" href="#!" aria-label="Ссылка на раздел">Монтаж печатных плат</a>
+              </li>
+
+              <li class="accordeon__map-item accordeon__map-item--accessories">
+                <a class="accordeon__map-link" href="#!" aria-label="Ссылка на раздел">Комплектующие</a>
+              </li>
+
+              <li class="accordeon__map-item accordeon__map-item--delivery">
+                <a class="accordeon__map-link" href="#!" aria-label="Ссылка на раздел">Доставка</a>
+              </li>
+
+              <li class="accordeon__map-item accordeon__map-item--contacts">
+                <a class="accordeon__map-link" href="#!" aria-label="Ссылка на раздел">Контакты</a>
+              </li>
+            </ul>
+          </div>
+
+          <button class="accordeon__btn" type="button" aria-label="Кнопка для раскрытия или скрытия контактов и адреса офиса">Наш офис</button>
+          <div class="accordeon__content animated">
+            <address class="accordeon__address">
+              <span class="">г. Мытищи, Олимпийский проспект, д.10</span>
+              <a class="link" href="tel:+74955894050" aria-label="Контактный телефон">+7 (495) 589-40-50</a>
+              <a class="link" href="tel:+79250038767" aria-label="Контактный телефон">+7 (925) 003-87-67</a>
+              <a class="link" href="tel:+792692608079" aria-label="Контактный телефон">+7 (926) 926-080-79</a>
+            </address>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-information__box service-information__box--lower">
+        <div class="service-information__rights hidden-before-desktop">
+          <p>Все права защищены</p>
+          <p>1999-2018 SD Service Devices</p>
+        </div>
+
+        <a class="service-information__privacy-terms-link link" href="#!" aria-label="Ссылка на раздел">Условия конфиденциальности</a>
+
+        <div class="service-information__developed-by">
+          <p>Developed by wow studio</p>
+        </div>
+      </div>
+    </section>
+  </footer>
 
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">
 
