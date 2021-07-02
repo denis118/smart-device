@@ -51,6 +51,12 @@
   transform: translate(-50%, -50%);
 }
 
+@mixin casual-flex {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
 @mixin column-flex {
   display: flex;
   flex-direction: column;

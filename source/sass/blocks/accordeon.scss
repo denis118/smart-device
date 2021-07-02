@@ -17,6 +17,15 @@
     column-gap: 10%;
   }
 
+  @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
+    grid-template-columns: max-content 1fr;
+    column-gap: 19.8%;
+
+    @include centering-padding(93.5065%);
+    padding-top: 37px;
+    padding-bottom: 34px;
+  }
+
   a {
     opacity: 0.5;
 
@@ -44,9 +53,9 @@
 }
 
 .accordeon__site-map {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  @media (min-width: $desktop-width) {
+    @include casual-flex;
+  }
 }
 
 .accordeon__list-item {
