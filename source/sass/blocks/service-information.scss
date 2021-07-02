@@ -43,6 +43,8 @@
 
     @media (max-width: $pre-tablet-width) {
       flex-direction: column;
+      padding-top: 28px;
+      padding-bottom: 26px;
     }
 
     p {
@@ -68,6 +70,9 @@
     @include centering-padding(93.5065%);
     padding-top: 19px;
     padding-bottom: 24px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
     border-bottom: 1px solid $dcg-2;
   }
 
@@ -83,6 +88,12 @@
     padding-right: 15px;
     margin-right: 10%;
   }
+
+  @media (max-width: $pre-tablet-width) {
+    @include zero-side-margins;
+    padding-right: 0;
+    margin-bottom: 10px;
+  }
 }
 
 .service-information__socials {
@@ -93,6 +104,11 @@
   @media (max-width: $pre-desktop-width) {
     margin-top: 10px;
     margin-left: 8.8%;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    @include zero-side-margins;
+    margin-top: 18px;
   }
 }
 
@@ -131,6 +147,11 @@
       padding-right: 10px;
     }
 
+    @media (max-width: $pre-tablet-width) {
+      @include zero-side-margins;
+      padding-right: 0;
+    }
+
     &:first-child {
       @media (min-width: $desktop-width) {
         margin-right: 13.5%;
@@ -148,6 +169,10 @@
 .service-information__privacy-terms-link {
   @media (min-width: $desktop-width) {
     margin-right: 28%;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 21px;
   }
 }
 

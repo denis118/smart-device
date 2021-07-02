@@ -26,10 +26,22 @@
     padding-bottom: 34px;
   }
 
+  @media (max-width: $pre-tablet-width) {
+    @include column-flex;
+  }
+
   a {
     opacity: 0.5;
 
     @include footer-link-active-states;
+  }
+}
+
+.accordeon__element {
+  @media (max-width: $pre-tablet-width) {
+    @include centering-padding(90.625%);
+    padding-top: 8px;
+    padding-bottom: 23px;
   }
 }
 
@@ -47,9 +59,26 @@
 
   width: max-content;
   margin-bottom: 25px;
-  padding: 0;
   background-color: transparent;
-  cursor: auto;
+  text-align: left;
+
+
+  @media (min-width: $tablet-width) {
+    padding: 0;
+    cursor: auto;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    padding-top: 28px;
+    padding-bottom: 28px;
+    margin-bottom: 8px;
+  }
+}
+
+.accordeon__content {
+  @media (max-width: $pre-tablet-width) {
+    border-bottom: 1px solid $dcg-2;
+  }
 }
 
 .accordeon__site-map {
@@ -86,4 +115,10 @@
 
 .accordeon__location {
   opacity: 0.5;
+}
+
+.accordeon__unit {
+  @media (max-width: $pre-tablet-width) {
+    width: 100%;
+  }
 }

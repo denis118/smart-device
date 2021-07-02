@@ -2,10 +2,12 @@
   padding-right: 100px;
   margin-right: auto;
 
-  img {
-    @media (max-width: $pre-tablet-width) {
-      width: 38px;
-      height: 38px;
+  &--header {
+    img {
+      @media (max-width: $pre-tablet-width) {
+        width: 38px;
+        height: 38px;
+      }
     }
   }
 
