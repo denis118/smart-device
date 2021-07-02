@@ -69,15 +69,53 @@
   }
 
   @media (max-width: $pre-tablet-width) {
+    position: relative;
     padding-top: 28px;
     padding-bottom: 28px;
     margin-bottom: 8px;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 16px;
+    height: 1px;
+    background-color: $dcg-5;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease-in;
+  }
+
+  &::before {
+    transform: translateX(-100%);
+  }
+
+  &::after {
+    transform: translateX(-100%) rotate(90deg) ;
+  }
+
+  &--active {
+    &::before,
+    &::after {
+      transform: translateX(-100%) rotate(360deg) ;
+    }
   }
 }
 
 .accordeon__content {
   @media (max-width: $pre-tablet-width) {
+    overflow: hidden;
     border-bottom: 1px solid $dcg-2;
+    transition: height 5s linear;
+  }
+
+  &--closed {
+    @media (max-width: $pre-tablet-width) {
+      @include zero-edges;
+      height: 0;
+    }
   }
 }
 
