@@ -6,14 +6,12 @@
   font-size: 15px;
   line-height: 25px;
   font-weight: 400;
-  color: inherit;
+  color: $dcg-3;
 
   display: grid;
   grid-template-columns: 1fr max-content;
   grid-template-rows: repeat(2, min-content);
   grid-auto-flow: column;
-
-  color: $dcg-3;
 
   @media (min-width: $desktop-width) {
     column-gap: 10%;
@@ -47,13 +45,14 @@
 
 .accordeon__site-map {
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .accordeon__list-item {
-  // @media (min-width: $desktop-width) {
-  //   margin-top: 15px;
-  // }
+  @media (min-width: $desktop-width) {
+    margin-bottom: 15px;
+  }
 
 
   &:nth-child(2n+1) {

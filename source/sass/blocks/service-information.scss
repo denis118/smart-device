@@ -49,7 +49,7 @@
     align-items: center;
 
     @media (min-width: $desktop-width) {
-      padding-top: 7px;
+      padding-top: 3px;
       padding-bottom: 13px;
     }
 
@@ -107,6 +107,7 @@
 .service-information__rights {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 
   width: 36.5%;
   margin-right: 5.8%;
