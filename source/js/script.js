@@ -129,13 +129,21 @@
 
   var Maybe = window.monad.Maybe;
   var accordeon = new Maybe(document.querySelector('.accordeon'));
+  var buttons = accordeon.map(function (element) {
+    return Array.from(element.querySelectorAll('.accordeon__btn'));
+  });
   var contents = accordeon.map(function (element) {
     return Array.from(element.querySelectorAll('.accordeon__content'));
   });
 
-  if (contents.operand.length) {
+  if (buttons.operand.length && contents.operand.length) {
     accordeon = accordeon.operand;
+    buttons = buttons.operand;
     contents = contents.operand;
+
+    buttons.forEach(function (it) {
+      it.classList.add('accordeon__btn--js');
+    });
 
     contents.forEach(function (it) {
       if (viewPort < TABLET_WIDTH) {
