@@ -13,3 +13,15 @@
     display: none;
   }
 }
+
+.hidden-before-tablet {
+  @media (max-width: $pre-tablet-width) {
+    display: none;
+  }
+}
+
+.hidden-after-mobile {
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}

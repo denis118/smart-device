@@ -34,11 +34,26 @@ $dcg-2: rgba(98, 105, 98, 0.2);
 $dcg-3: #1b2d37;
 $dcg-4: #cdcdcd;
 $dcg-5: #c4c4c4;
-// $dcg-6: rgba(0, 0, 0, 0.7);
+$dcg-6: #1b2931;
 // $dcg-7: rgba(0, 0, 0, 0.5);
 // $dcg-8: #141517;
 // $dcg-9: #131314;
 // $dcg-10: #070707;
+
+
+//
+// backgrounds
+//
+
+// general-screen
+$general-bg-desktop: url("../img/bg/main-block-bg-desktop.jpg");
+$general-bg-desktop-2x: url("../img/bg/main-block-bg-desktop@2x.jpg");
+
+$general-bg-tablet: url("../img/bg/main-block-bg-tablet.jpg");
+$general-bg-tablet-2x: url("../img/bg/main-block-bg-tablet@2x.jpg");
+
+$general-bg-mobile: url("../img/bg/main-block-bg-mobile.jpg");
+$general-bg-mobile-2x: url("../img/bg/main-block-bg-mobile@2x.jpg");
 
 
 // other

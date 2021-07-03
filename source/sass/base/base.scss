@@ -66,25 +66,12 @@ header {
   }
 }
 
-main {
-  height: 100px;
-  background-color: #000;
-}
-
-footer {
-  // align-self: end;
-
-  outline: 1px dashed red;
-  outline-offset: -1px;
-}
+// footer {
+//   align-self: end;
+// }
 
 img {
   display: block;
-}
-
-.container {
-  @include centering-margin;
-  max-width: $content-max-width;
 }
 
 .visually-hidden {
@@ -112,4 +99,21 @@ img {
 .link,
 .button {
   cursor: pointer;
+}
+
+.container {
+  @include centering-margin;
+  max-width: 1420px;
+
+  @media (min-width: $desktop-width) {
+    width: 73.9583%;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    width: 77.1429%;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    width: 90.625%;
+  }
 }
