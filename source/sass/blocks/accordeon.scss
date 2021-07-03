@@ -108,13 +108,12 @@
   @media (max-width: $pre-tablet-width) {
     overflow: hidden;
     border-bottom: 1px solid $dcg-2;
-    transition: height 5s linear;
+    transition: max-height 0.3s linear;
   }
 
-  &--closed {
+  &--js {
     @media (max-width: $pre-tablet-width) {
-      @include zero-edges;
-      height: 0;
+      max-height: 0;
     }
   }
 }

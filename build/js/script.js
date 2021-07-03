@@ -85,7 +85,58 @@
 })();
 
 // accordeon
+// (function () {
+//   var Maybe = window.monad.Maybe;
+//   var accordeon = new Maybe(document.querySelector('.accordeon'));
+//   var contents = accordeon.map(function (element) {
+//     return Array.from(element.querySelectorAll('.accordeon__content'));
+//   });
+
+//   if (contents.operand.length) {
+//     accordeon = accordeon.operand;
+//     contents = contents.operand;
+
+//     contents.forEach(function (it) {
+//       it.classList.add('accordeon__content--closed');
+//     });
+
+//     if ('IntersectionObserver' in window) {
+//       window.listenersManaging.manageListeners([accordeon], {'click': onAccordeonClick});
+//     } else {
+//       accordeon.addEventListener('click', onAccordeonClick);
+//     }
+//   }
+
+//   function onAccordeonClick(evt) {
+//     if (evt.target.matches('.accordeon__btn')) {
+//       contents.forEach(function (it) {
+//         if (it === evt.target.nextElementSibling) {
+//           it.classList.toggle('accordeon__content--closed');
+//         }
+//       });
+
+//       evt.target.classList.toggle('accordeon__btn--active');
+//     }
+//   }
+// })();
+
 (function () {
+  var UNITS = 'px';
+  var TABLET_WIDTH = 768;
+
+  var viewPort = document.documentElement.clientWidth;
+  var children;
+  var isChildrenHidden = false;
+  var scrollHeightKeeping = {};
+
+  function callback() {
+    viewPort = document.documentElement.clientWidth;
+    hideContent();
+  }
+
+  document.addEventListener('DOMContentLoaded', callback);
+  window.addEventListener('resize', callback);
+
   var Maybe = window.monad.Maybe;
   var accordeon = new Maybe(document.querySelector('.accordeon'));
   var contents = accordeon.map(function (element) {
@@ -97,7 +148,9 @@
     contents = contents.operand;
 
     contents.forEach(function (it) {
-      it.classList.add('accordeon__content--closed');
+      if (viewPort < TABLET_WIDTH) {
+        it.style.height = null;
+      }
     });
 
     if ('IntersectionObserver' in window) {
@@ -107,11 +160,49 @@
     }
   }
 
+  function hideContent() {
+    contents.forEach(function (it) {
+      if (viewPort < TABLET_WIDTH) {
+        scrollHeightKeeping[it.id] = {
+          scrollHeight: it.scrollHeight
+        };
+
+        it.classList.add('accordeon__content--js');
+
+        children = Array.from(it.children);
+        hideChildren(children);
+        isChildrenHidden = true;
+      }
+    });
+  }
+
+  function hideChildren(array) {
+    array.forEach(function (it) {
+      it.classList.add('hidden-entity');
+    });
+  }
+
+  function showChildren(array) {
+    array.forEach(function (it) {
+      it.classList.remove('hidden-entity');
+    });
+  }
+
   function onAccordeonClick(evt) {
     if (evt.target.matches('.accordeon__btn')) {
       contents.forEach(function (it) {
         if (it === evt.target.nextElementSibling) {
-          it.classList.toggle('accordeon__content--closed');
+          if (it.style.maxHeight) {
+            it.style.maxHeight = null;
+          } else {
+            if (isChildrenHidden) {
+              children = Array.from(it.children);
+              showChildren(children);
+            }
+
+            it.style.maxHeight = scrollHeightKeeping[it.id].scrollHeight + UNITS;
+          }
+
         }
       });
 
