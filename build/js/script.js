@@ -85,41 +85,6 @@
 })();
 
 // accordeon
-// (function () {
-//   var Maybe = window.monad.Maybe;
-//   var accordeon = new Maybe(document.querySelector('.accordeon'));
-//   var contents = accordeon.map(function (element) {
-//     return Array.from(element.querySelectorAll('.accordeon__content'));
-//   });
-
-//   if (contents.operand.length) {
-//     accordeon = accordeon.operand;
-//     contents = contents.operand;
-
-//     contents.forEach(function (it) {
-//       it.classList.add('accordeon__content--closed');
-//     });
-
-//     if ('IntersectionObserver' in window) {
-//       window.listenersManaging.manageListeners([accordeon], {'click': onAccordeonClick});
-//     } else {
-//       accordeon.addEventListener('click', onAccordeonClick);
-//     }
-//   }
-
-//   function onAccordeonClick(evt) {
-//     if (evt.target.matches('.accordeon__btn')) {
-//       contents.forEach(function (it) {
-//         if (it === evt.target.nextElementSibling) {
-//           it.classList.toggle('accordeon__content--closed');
-//         }
-//       });
-
-//       evt.target.classList.toggle('accordeon__btn--active');
-//     }
-//   }
-// })();
-
 (function () {
   var UNITS = 'px';
   var TABLET_WIDTH = 768;
@@ -129,13 +94,38 @@
   var isChildrenHidden = false;
   var scrollHeightKeeping = {};
 
+  document.addEventListener('DOMContentLoaded', callback);
+
   function callback() {
     viewPort = document.documentElement.clientWidth;
     hideContent();
   }
 
-  document.addEventListener('DOMContentLoaded', callback);
-  window.addEventListener('resize', callback);
+  var onWindowResize = makeHandler();
+  window.addEventListener('resize', onWindowResize);
+
+  function makeHandler() {
+    var flag = false;
+
+    return function () {
+      viewPort = document.documentElement.clientWidth;
+
+      if (
+        (viewPort > TABLET_WIDTH || viewPort === TABLET_WIDTH)
+        && flag
+      ) {
+        flag = false;
+      }
+
+      if (
+        viewPort < TABLET_WIDTH
+        && !flag
+      ) {
+        hideContent();
+        flag = true;
+      }
+    };
+  }
 
   var Maybe = window.monad.Maybe;
   var accordeon = new Maybe(document.querySelector('.accordeon'));
@@ -210,15 +200,9 @@
 
           if (openedContents.length > 1) {
             openedContents.forEach(function (element) {
-              console.log(element);
-
               if (!Object.is(element, it)) {
                 element.style.maxHeight = null;
               }
-
-              // if (!element.matches(it)) {
-              //   element.style.maxHeight = null;
-              // }
             });
           }
         }

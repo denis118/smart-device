@@ -94,13 +94,38 @@
   var isChildrenHidden = false;
   var scrollHeightKeeping = {};
 
+  document.addEventListener('DOMContentLoaded', callback);
+
   function callback() {
     viewPort = document.documentElement.clientWidth;
     hideContent();
   }
 
-  document.addEventListener('DOMContentLoaded', callback);
-  window.addEventListener('resize', callback);
+  var onWindowResize = makeHandler();
+  window.addEventListener('resize', onWindowResize);
+
+  function makeHandler() {
+    var flag = false;
+
+    return function () {
+      viewPort = document.documentElement.clientWidth;
+
+      if (
+        (viewPort > TABLET_WIDTH || viewPort === TABLET_WIDTH)
+        && flag
+      ) {
+        flag = false;
+      }
+
+      if (
+        viewPort < TABLET_WIDTH
+        && !flag
+      ) {
+        hideContent();
+        flag = true;
+      }
+    };
+  }
 
   var Maybe = window.monad.Maybe;
   var accordeon = new Maybe(document.querySelector('.accordeon'));
