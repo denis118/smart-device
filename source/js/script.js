@@ -85,41 +85,6 @@
 })();
 
 // accordeon
-// (function () {
-//   var Maybe = window.monad.Maybe;
-//   var accordeon = new Maybe(document.querySelector('.accordeon'));
-//   var contents = accordeon.map(function (element) {
-//     return Array.from(element.querySelectorAll('.accordeon__content'));
-//   });
-
-//   if (contents.operand.length) {
-//     accordeon = accordeon.operand;
-//     contents = contents.operand;
-
-//     contents.forEach(function (it) {
-//       it.classList.add('accordeon__content--closed');
-//     });
-
-//     if ('IntersectionObserver' in window) {
-//       window.listenersManaging.manageListeners([accordeon], {'click': onAccordeonClick});
-//     } else {
-//       accordeon.addEventListener('click', onAccordeonClick);
-//     }
-//   }
-
-//   function onAccordeonClick(evt) {
-//     if (evt.target.matches('.accordeon__btn')) {
-//       contents.forEach(function (it) {
-//         if (it === evt.target.nextElementSibling) {
-//           it.classList.toggle('accordeon__content--closed');
-//         }
-//       });
-
-//       evt.target.classList.toggle('accordeon__btn--active');
-//     }
-//   }
-// })();
-
 (function () {
   var UNITS = 'px';
   var TABLET_WIDTH = 768;
@@ -201,8 +166,20 @@
             }
 
             it.style.maxHeight = scrollHeightKeeping[it.id].scrollHeight + UNITS;
+            it.classList.add('opened');
           }
 
+          var openedContents = accordeon.querySelectorAll('.opened')
+            ? Array.from(accordeon.querySelectorAll('.opened'))
+            : null;
+
+          if (openedContents.length > 1) {
+            openedContents.forEach(function (element) {
+              if (!Object.is(element, it)) {
+                element.style.maxHeight = null;
+              }
+            });
+          }
         }
       });
 

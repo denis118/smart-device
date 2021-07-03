@@ -201,8 +201,26 @@
             }
 
             it.style.maxHeight = scrollHeightKeeping[it.id].scrollHeight + UNITS;
+            it.classList.add('opened');
           }
 
+          var openedContents = accordeon.querySelectorAll('.opened')
+            ? Array.from(accordeon.querySelectorAll('.opened'))
+            : null;
+
+          if (openedContents.length > 1) {
+            openedContents.forEach(function (element) {
+              console.log(element);
+
+              if (!Object.is(element, it)) {
+                element.style.maxHeight = null;
+              }
+
+              // if (!element.matches(it)) {
+              //   element.style.maxHeight = null;
+              // }
+            });
+          }
         }
       });
 
