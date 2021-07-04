@@ -230,3 +230,37 @@
     }
   }
 })();
+
+// Скролл
+(function () {
+  var Maybe = window.monad.Maybe;
+  var consultationAnchor = new Maybe(document.querySelector('a[href="#consultation"]'));
+  var advantagesAnchor = new Maybe(document.querySelector('a[href="#advantages"]'));
+
+  if (consultationAnchor.operand) {
+    consultationAnchor = consultationAnchor.operand;
+    consultationAnchor.addEventListener('click', onAnchorClick);
+  }
+
+  if (advantagesAnchor.operand) {
+    advantagesAnchor = advantagesAnchor.operand;
+    advantagesAnchor.addEventListener('click', onAnchorClick);
+  }
+
+  function onAnchorClick(evt) {
+    evt.preventDefault();
+    letItScroll(evt);
+  }
+
+  function letItScroll(evt) {
+    var aimId = evt.target.getAttribute('href');
+    var aim = document.querySelector(aimId);
+
+    if (aim) {
+      aim.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+})();

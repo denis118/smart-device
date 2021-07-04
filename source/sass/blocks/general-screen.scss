@@ -57,7 +57,7 @@
     font-size: 60px;
     line-height: 70px;
 
-    margin-bottom: 33px;
+    margin-bottom: 27px;
   }
 
   @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
@@ -77,7 +77,7 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      margin-left: 48px;
+      margin-left: 51px;
     }
   }
 }
@@ -110,7 +110,7 @@
     line-height: 25px;
 
     width: 84.4828%;
-    margin-bottom: 42px;
+    margin-bottom: 40px;
   }
 
   &::before {
@@ -126,6 +126,10 @@
       top: 15px;
       left: -49px;
       width: 33px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      left: -48px;
     }
   }
 }
@@ -152,8 +156,8 @@
   }
 
   @media (max-width: $pre-tablet-width) {
-    width: 98.9655%;
-    margin-bottom: 70px;
+    width: 287px;
+    margin-left: 3px;
   }
 
   span {
