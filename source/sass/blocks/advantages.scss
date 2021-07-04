@@ -61,6 +61,7 @@
   &--hired {
     @media (max-width: $pre-tablet-width) {
       padding-top: 22px;
+      padding-right: 10px;
     }
   }
 
@@ -114,6 +115,19 @@
 
   @media (max-width: $pre-tablet-width) {
     margin-bottom: 13px;
+  }
+}
+
+.advantages__hired-svg {
+  @media (max-width: $pre-desktop-width) {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    transform: translate(0, 2px);
+    margin-bottom: 15px;
   }
 }
 
