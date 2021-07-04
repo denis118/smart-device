@@ -1,1 +1,149 @@
-// .about {}
+.about {
+  position: relative;
+  @media (min-width: $desktop-width) {
+    padding-left: 178px;
+    margin-bottom: 35px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    padding-left: 186px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    padding-left: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -30px;
+
+    @include background-properties;
+
+    @media (min-width: $desktop-width) {
+      width: 220px;
+      height: 317px;
+      background-image: $about-bg-large;
+
+      @media (min-resolution: 2dppx) {
+        background-image: $about-bg-large-2x;
+      }
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      top: 0;
+      left: -25px;
+      width: 244px;
+      height: 362px;
+      background-image: $about-bg-middle;
+
+      @media (min-resolution: 2dppx) {
+        background-image: $about-bg-middle-2x;
+      }
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      display: none;
+    }
+  }
+}
+
+.about__heading {
+  font-family:
+    "robotocondensed",
+    "Arial",
+    sans-serif;
+  font-size: 36px;
+  line-height: 51px;
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  color: $dcg-1;
+
+  @include zero-edges;
+  margin-bottom: 20px;
+
+  @media (max-width: $pre-desktop-width) {
+    font-size: 32px;
+    line-height: 45px;
+
+    margin-bottom: 26px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    font-size: 28px;
+    line-height: 39px;
+
+    margin-bottom: 19px;
+  }
+}
+
+.about__item-text-box {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+
+  &--upper {
+    width: 98%;
+    margin-bottom: 22px;
+
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 54px;
+    }
+  }
+
+  &--lower {
+    @media (min-width: $desktop-width) {
+      margin-bottom: 37px;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 42px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 33px;
+    }
+  }
+}
+
+.about__details {
+  @include centering-flex;
+  width: 180px;
+  height: 45px;
+  color: $mcg-1;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  background-color: $lcg-1;
+
+  @media (min-width: $desktop-width) {
+    margin-left: 3px;
+  }
+
+  span {
+    font-family:
+    "robotocondensed",
+    "Arial",
+    sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.06em;
+    color: currentColor;
+  }
+
+  &:hover,
+  &:focus {
+    color: $lcg-1;
+    background-color: $mcg-1;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
