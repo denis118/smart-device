@@ -26,7 +26,7 @@
       background-image: $general-bg-tablet-2x;
     }
 
-    padding-top: 188px;
+    padding-top: 185px;
     padding-bottom: 163px;
   }
 
@@ -54,8 +54,10 @@
   margin-bottom: 31px;
 
   @media (max-width: $pre-desktop-width) {
-    font-size: 66px;
+    font-size: 60px;
     line-height: 70px;
+
+    margin-bottom: 33px;
   }
 
   @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
@@ -71,7 +73,7 @@
     margin-left: 98px;
 
     @media (max-width: $pre-desktop-width) {
-      margin-left: 61px;
+      margin-left: 52px;
     }
 
     @media (max-width: $pre-tablet-width) {
@@ -100,6 +102,7 @@
     line-height: 28px;
 
     width: 59.9327%;
+    margin-bottom: 54px;
   }
 
   @media (max-width: $pre-tablet-width) {
@@ -120,6 +123,8 @@
     background-color: $lcg-1;
 
     @media (max-width: $pre-desktop-width) {
+      top: 15px;
+      left: -49px;
       width: 33px;
     }
   }
@@ -143,7 +148,7 @@
 
   @media (max-width: $pre-desktop-width) {
     width: 63.8047%;
-    margin-bottom: 163px;
+    margin-bottom: 0;
   }
 
   @media (max-width: $pre-tablet-width) {
