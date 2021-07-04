@@ -147,7 +147,7 @@
 
     contents.forEach(function (it) {
       if (viewPort < TABLET_WIDTH) {
-        it.style.height = null;
+        it.style.maxHeight = null;
       }
     });
 
@@ -210,6 +210,16 @@
             openedContents.forEach(function (element) {
               if (!Object.is(element, it)) {
                 element.style.maxHeight = null;
+
+                var button = element.previousElementSibling
+                  ? element.previousElementSibling
+                  : null;
+
+                if (button) {
+                  if (button.classList.contains('accordeon__btn--active')) {
+                    button.classList.remove('accordeon__btn--active');
+                  }
+                }
               }
             });
           }
