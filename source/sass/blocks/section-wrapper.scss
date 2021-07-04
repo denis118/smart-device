@@ -1,0 +1,27 @@
+.section-wrapper {
+  @include background-properties;
+  background-color: $lcg-1;
+
+  @media (min-width: $desktop-width) {
+    background-image: $section-wrapper-bg-large;
+
+    @media (min-resolution: 2dppx) {
+      background-image: $section-wrapper-bg-large-2x;
+    }
+
+    padding-top: 106px;
+    padding-bottom: 96px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    background-image: $section-wrapper-bg-middle;
+
+    padding-top: 54px;
+    padding-bottom: 75px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    padding-top: 37px;
+    padding-bottom: 65px;
+  }
+}

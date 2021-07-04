@@ -116,4 +116,14 @@ img {
   @media (max-width: $pre-tablet-width) {
     width: 90.625%;
   }
+
+  &--altered {
+    @media (min-width: $desktop-width) {
+      width: 60.9375%;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      width: 93.5065%;
+    }
+  }
 }

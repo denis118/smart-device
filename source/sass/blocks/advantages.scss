@@ -1,0 +1,147 @@
+.advantages {
+  @media (min-width: $desktop-width) {
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 40px;
+  }
+}
+
+.advantages__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.advantages__item {
+  @include column-flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  border: 1px solid $dcg-7;
+  border-left: none;
+  position: relative;
+  cursor: pointer;
+  background-color:$lcg-1;
+
+  @media (min-width: $desktop-width) {
+    width: 48.7179%;
+    min-height: 299px;
+    padding-top: 40px;
+    padding-left: 45px;
+    padding-right: 43px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    width: 47.9167%;
+    min-height: 232px;
+    padding-top: 24px;
+    padding-left: 27px;
+    padding-right: 21px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    width: 100%;
+    min-height: 310px;
+    padding-top: 25px;
+    padding-right: 18px;
+    margin-bottom: 20px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: $mcg-1;
+
+    @media (max-width: $pre-desktop-width) {
+      width: 2px;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $lcg-1;
+    background-color: $mcg-1;
+
+    .advantages__item-svg {
+      --icon-color: #{$lcg-1};
+    }
+
+    & > * {
+      color: currentColor;
+    }
+  }
+}
+
+.advantages__item-svg {
+  --icon-color: #{$mcg-1};
+
+  fill: --icon-color;
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: 23px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 6px;
+  }
+}
+
+.advantages__item-heading {
+  font-family:
+    "robotocondensed",
+    "Arial",
+    sans-serif;
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 400;
+  color: $mcg-1;
+
+  @include zero-edges;
+
+  @media (min-width: $desktop-width) {
+    letter-spacing: -0.06em;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    transform: scaleX(0.9) translateX(-13px);
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 16px;
+  }
+
+  &--confidentiality {
+    @media (max-width: $pre-desktop-width) {
+      transform: scaleX(0.9) translateX(-18px);
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.advantages__item-text-box {
+  width: 100%;
+  margin-bottom: 10px;
+
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 19px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 22px;
+
+    @include zero-edges;
+    width: 100%;
+  }
+}
