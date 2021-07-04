@@ -25,3 +25,9 @@
     display: none;
   }
 }
+
+.hidden-on-mobile {
+  @media (max-width: $pre-tablet-width) {
+    display: none;
+  }
+}

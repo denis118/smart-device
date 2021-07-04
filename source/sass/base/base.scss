@@ -122,7 +122,7 @@ img {
       width: 60.9375%;
     }
 
-    @media (max-width: $pre-desktop-width) {
+    @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
       width: 93.5065%;
     }
   }
