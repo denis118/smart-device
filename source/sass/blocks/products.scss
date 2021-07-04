@@ -127,72 +127,75 @@
     }
   }
 
-  span,
-  &::before,
-  &::after {
-    position: absolute;
-  }
+  // span,
+  // &::before,
+  // &::after {
+  //   position: absolute;
+  // }
 
-  span,
-  &::after {
-    z-index: 1;
-  }
+  // span,
+  // &::after {
+  //   z-index: 1;
+  // }
 
-  &::before,
-  &::after {
-    content: "";
-  }
+  // &::before,
+  // &::after {
+  //   content: "";
+  // }
 
-  &::before {
-    top: 89.3%;
-    left: 89.5%;
-    transform: rotate(135deg);
-    z-index: 2;
+  // &::before {
+  //   top: 89.3%;
+  //   left: 89.5%;
+  //   transform: rotate(135deg);
+  //   z-index: 2;
 
-    border: 0.2em solid $lcg-1;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
+  //   border: 0.2em solid $lcg-1;
+  //   border-right-color: transparent;
+  //   border-bottom-color: transparent;
 
-    @media (min-width: $desktop-width) {
-      width: 3.4%;
-      height: 2%;
-    }
+  //   @media (min-width: $desktop-width) {
+  //     width: 3.4%;
+  //     height: 2%;
+  //   }
 
-    @media (max-width: $pre-desktop-width) {
-      width: 0.559441%;
-      height: 3.125%;
-    }
+  //   @media (max-width: $pre-desktop-width) {
+  //     width: 0.559441%;
+  //     height: 3.125%;
+  //   }
 
-    @media (max-width: $pre-tablet-width) {
-      width: 1.37931%;
-    }
-  }
+  //   @media (max-width: $pre-tablet-width) {
+  //     width: 1.37931%;
+  //   }
+  // }
 
-  &::after {
-    top: 100%;
-    left: 100%;
-    transform: translate(-100.5%, -152%);
-    background-color: $mcg-1;
+  // &::after {
+  //   top: 100%;
+  //   left: 100%;
+  //   transform: translate(-100.5%, -152%);
+  //   background-color: $mcg-1;
 
-    @media (min-width: $desktop-width) {
-      width: 17.027027%;
-      height: 9.65%;
-    }
+  //   @media (min-width: $desktop-width) {
+  //     width: 17.027027%;
+  //     height: 9.65%;
+  //   }
 
-    @media (max-width: $pre-desktop-width) {
-      width: 8.8112%;
-      height: 24.609375%;
-    }
+  //   @media (max-width: $pre-desktop-width) {
+  //     width: 8.8112%;
+  //     height: 24.609375%;
+  //   }
 
-    @media (max-width: $pre-tablet-width) {
-      width: 21.724138%;
-    }
-  }
+  //   @media (max-width: $pre-tablet-width) {
+  //     width: 21.724138%;
+  //   }
+  // }
 
   span {
     font-size: 20px;
     line-height: 30px;
     letter-spacing: -0.04em;
+
+    position: absolute;
+    z-index: 1;
 
     @media (min-width: $desktop-width) {
       top: 51px;
@@ -210,16 +213,28 @@
     }
   }
 
+  // &:hover,
+  // &:focus {
+  //   &::before {
+  //     border-color: $mcg-1;
+  //     border-right-color: transparent;
+  //     border-bottom-color: transparent;
+  //   }
+
+  //   &::after {
+  //     background-color: $lcg-1;
+  //   }
+  // }
+
+  // &:active {
+  //   transform: translateY(3px);
+  // }
+
   &:hover,
   &:focus {
-    &::before {
-      border-color: $mcg-1;
-      border-right-color: transparent;
-      border-bottom-color: transparent;
-    }
-
-    &::after {
-      background-color: $lcg-1;
+    .products__arrow-svg {
+      --arrow-bg: #{$lcg-1};
+      --arrow-stroke: #{$mcg-1};
     }
   }
 
@@ -228,38 +243,38 @@
   }
 }
 
-// .products__arrow-svg {
-//   --arrow-bg: #{$mcg-1};
-//   --arrow-stroke: #{$lcg-1};
+.products__arrow-svg {
+  --arrow-bg: #{$mcg-1};
+  --arrow-stroke: #{$lcg-1};
 
-//   position: absolute;
-//   top: 100%;
-//   left: 100%;
-//   transform: translate(-100%, -150%);
-//   z-index: 1;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  transform: translate(-101%, -147%);
+  z-index: 1;
 
-//   @media (min-width: $desktop-width) {
-//     width: 17.027027%;
-//     height: 10.1612903%;
-//   }
+  @media (min-width: $desktop-width) {
+    width: 17.027027%;
+    height: 10.1612903%;
+  }
 
-//   @media (max-width: $pre-desktop-width) {
-//     width: 8.8112%;
-//     height: 24.609375%;
-//   }
+  @media (max-width: $pre-desktop-width) {
+    width: 8.8112%;
+    height: 24.609375%;
+  }
 
-//   @media (max-width: $pre-tablet-width) {
-//     width: 21.724138%;
-//   }
+  @media (max-width: $pre-tablet-width) {
+    width: 21.724138%;
+  }
 
-//   .background {
-//     fill: --arrow-bg;
-//   }
+  .background {
+    fill: --arrow-bg;
+  }
 
-//   .stroke {
-//     stroke: --arrow-stroke;
-//   }
-// }
+  .stroke {
+    stroke: --arrow-stroke;
+  }
+}
 
 .products__padded-box {
   @include padded-box;
