@@ -74,7 +74,7 @@
     font-size: 28px;
     line-height: 39px;
 
-    margin-bottom: 19px;
+    margin-bottom: 23px;
   }
 }
 
@@ -92,7 +92,8 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      margin-bottom: 54px;
+      width: 100%;
+      margin-bottom: 38px;
     }
   }
 
@@ -106,7 +107,7 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      margin-bottom: 33px;
+      margin-bottom: 30px;
     }
   }
 }
