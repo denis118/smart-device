@@ -1,0 +1,35 @@
+.products {
+  background-color: $dcg-3;
+
+  @media (min-width: $desktop-width) {
+    padding-top: 93px;
+    padding-bottom: 127px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    padding-top: 53px;
+    padding-bottom: 78px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    padding-bottom: 64px;
+  }
+}
+
+.products__item {
+  img {
+    // @media (min-width: $desktop-width) {
+
+    // }
+
+    @media (max-width: $pre-desktop-width) {
+      width: 715px;
+      height: 256px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      width: 290px;
+      height: 256px;
+    }
+  }
+}
