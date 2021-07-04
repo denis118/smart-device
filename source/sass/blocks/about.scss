@@ -1,5 +1,6 @@
 .about {
   position: relative;
+
   @media (min-width: $desktop-width) {
     padding-left: 178px;
     margin-bottom: 35px;
@@ -127,9 +128,9 @@
 
   span {
     font-family:
-    "robotocondensed",
-    "Arial",
-    sans-serif;
+      "robotocondensed",
+      "Arial",
+      sans-serif;
     font-size: 14px;
     line-height: 16px;
     font-weight: 700;
