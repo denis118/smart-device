@@ -285,7 +285,8 @@
             class="products__item products__item--production">
             <a
               class="products__link products__link--production link"
-              href="#!">
+              href="#!"
+              aria-label="Ссылка для перехода на страницу о производстве печатных плат">
               <span>Производство печатных
                 плат</span>
 
@@ -334,6 +335,15 @@
                     " />
                 </picture>
               </div>
+
+              <svg
+                class="products__arrow-svg products__arrow-svg--production"
+                width="63"
+                height="63"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <use xlink:href="#icon-arrow-right"></use>
+              </svg>
             </a>
           </li>
 
@@ -341,7 +351,8 @@
             class="products__item products__item--assembly">
             <a
               class="products__link products__link--assembly link"
-              href="#!">
+              href="#!"
+              aria-label="Ссылка для перехода на страницу о монтаже печатных плат">
               <span>Монтаж печатных плат</span>
 
               <div
@@ -389,6 +400,15 @@
                     " />
                 </picture>
               </div>
+
+              <svg
+                class="products__arrow-svg products__arrow-svg--assembly"
+                width="63"
+                height="63"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <use xlink:href="#icon-arrow-right"></use>
+              </svg>
             </a>
           </li>
 
@@ -396,7 +416,8 @@
             class="products__item products__item--accessories">
             <a
               class="products__link products__link--accessories link"
-              href="#!">
+              href="#!"
+              aria-label="Ссылка для перехода на страницу комплектующих">
               <span>Комплектующие
                 для
                 светотехники</span>
@@ -446,6 +467,15 @@
                     " />
                 </picture>
               </div>
+
+              <svg
+                class="products__arrow-svg products__arrow-svg--accessories"
+                width="63"
+                height="63"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <use xlink:href="#icon-arrow-right"></use>
+              </svg>
             </a>
           </li>
         </ul>
@@ -775,8 +805,8 @@
     <symbol
       id="icon-arrow-right"
       viewBox="0 0 63 63">
-      <path fill="var(--arrow-bg)" d="M0 0h63v63H0z"/>
-      <path d="M32 35.5l4-4-4-4" stroke="var(--arrow-stroke)" stroke-linejoin="round"/>
+      <path class="background" fill="var(--arrow-bg)" d="M0 0h63v63H0z"/>
+      <path class="stroke" d="M32 35.5l4-4-4-4" stroke="var(--arrow-stroke)" stroke-linejoin="round"/>
     </symbol>
 
     <symbol
