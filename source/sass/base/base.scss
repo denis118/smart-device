@@ -118,6 +118,8 @@ img {
   }
 
   &--altered {
+    max-width: 1170px;
+
     @media (min-width: $desktop-width) {
       width: 60.9375%;
     }
