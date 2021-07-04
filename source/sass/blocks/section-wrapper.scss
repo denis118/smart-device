@@ -15,8 +15,8 @@
 
   @media (max-width: $pre-desktop-width) {
     background-image: $section-wrapper-bg-middle;
-    // background-size: 636px 990px;
-    // background-position: 130% -3%;
+    background-size: 559px 873px;
+    background-position: 100% 39%;
 
     @media (min-resolution: 2dppx) {
       background-image: $section-wrapper-bg-middle-2x;
@@ -27,6 +27,7 @@
   }
 
   @media (max-width: $pre-tablet-width) {
+    background-position: 51% 71%;
     padding-top: 37px;
     padding-bottom: 65px;
   }
