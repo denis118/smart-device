@@ -153,7 +153,7 @@
 
     <section class="products">
       <div class="container container--altered">
-        <h3 class="visually-hidden">Продукты компании</h3>
+        <h2 class="visually-hidden">Продукты компании</h2>
 
         <div class="products__text-box">
           <p>Service Device предлагает следующие товары и услуги</p>
@@ -277,6 +277,46 @@
             </a>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section class="consultation" id="consultation">
+      <div class="container container--altered">
+        <h2 class="visually-hidden">Обратная связь</h2>
+
+        <form action="https://echo.htmlacademy.ru/" method="POST" autocomplete="off">
+          <div class="consultation__form-box">
+            <div class="consultation__text-box consultation__text-box--upper">
+              <p>Остались вопросы? Задайте их нам!</p>
+            </div>
+
+            <div class="consultation__text-box consultation__text-box--lower">
+              <p>Мы проконсультируем Вас бесплатно</p>
+            </div>
+
+            <div class="consultation__input-wrapper consultation__input-wrapper--username">
+              <label for="name">Ваше имя</label>
+              <input type="text" name="name" id="name" placeholder="Имя" required="">
+            </div>
+
+            <div class="consultation__input-wrapper consultation__input-wrapper--username">
+              <label for="phone">Ваш номер телефона</label>
+              <input type="tel" name="telephone" id="phone" placeholder="Телефон" pattern="\+7\([0-9]{3}\)[0-9]{7}" required="">
+            </div>
+
+            <div class="consultation__textarea-wrapper">
+              <label for="question">Ваш вопрос</label>
+              <textarea name="question" id="question" cols="30" rows="10" required="">Ваш вопрос</textarea>
+            </div>
+
+            <button type="submit" aria-label="Кнопка отправки формы с вопросом"><span>Задать вопрос</span></button>
+
+            <div class="consultation__input-wrapper">
+              <input type="checkbox" name="consent" id="consent" required="" checked="">
+              <label for="consent">Я согласен на обработку  персональных данных</label>
+            </div>
+          </div>
+        </form>
       </div>
     </section>
   </main>

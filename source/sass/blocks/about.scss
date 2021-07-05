@@ -51,30 +51,17 @@
 }
 
 .about__heading {
-  font-family:
-    "robotocondensed",
-    "Arial",
-    sans-serif;
-  font-size: 36px;
-  line-height: 51px;
-  font-weight: 400;
-  letter-spacing: -0.06em;
   color: $dcg-1;
 
+  @include text-style-kit;
   @include zero-edges;
   margin-bottom: 20px;
 
   @media (max-width: $pre-desktop-width) {
-    font-size: 32px;
-    line-height: 45px;
-
     margin-bottom: 26px;
   }
 
   @media (max-width: $pre-tablet-width) {
-    font-size: 28px;
-    line-height: 39px;
-
     margin-bottom: 23px;
   }
 }
@@ -115,11 +102,11 @@
 
 .about__details {
   @include centering-flex;
+  @include common-button-style;
+  @include transparent-button-style($mcg-1);
+
   width: 180px;
   height: 45px;
-  color: $mcg-1;
-  border: 1px solid currentColor;
-  border-radius: 5px;
   background-color: $lcg-1;
 
   @media (min-width: $desktop-width) {
@@ -127,14 +114,6 @@
   }
 
   span {
-    font-family:
-      "robotocondensed",
-      "Arial",
-      sans-serif;
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: -0.06em;
     color: currentColor;
   }

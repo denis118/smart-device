@@ -37,24 +37,14 @@
   }
 
   p {
+    @include text-style-kit;
     letter-spacing: -0.035em;
 
-    @media (min-width: $desktop-width) {
-      font-size: 36px;
-      line-height: 51px;
-    }
-
     @media (max-width: $pre-desktop-width) {
-      font-size: 32px;
-      line-height: 45px;
-
       width: 85%;
     }
 
     @media (max-width: $pre-tablet-width) {
-      font-size: 28px;
-      line-height: 39px;
-
       width: 93.5%;
       margin-left: 11px;
       letter-spacing: -0.06em;

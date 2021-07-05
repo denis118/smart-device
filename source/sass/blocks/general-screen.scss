@@ -137,20 +137,18 @@
 }
 
 .general-screen__consultation {
-  font-size: 16px;
+  @include common-button-style;
+  @include centering-flex;
+
   line-height: 19px;
-  font-weight: 700;
-  text-transform: uppercase;
   color: inherit;
   background-color: $mcg-1;
 
-  @include centering-flex;
   width: 28.6619%;
   margin-top: 0;
   margin-bottom: 174px;
   padding-top: 17px;
   padding-bottom: 19px;
-  border-radius: 5px;
 
   @media (max-width: $pre-desktop-width) {
     width: 63.8047%;

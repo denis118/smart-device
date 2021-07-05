@@ -1,25 +1,15 @@
 .ring-trigger {
-  font-family:
-    "robotocondensed",
-    "Arial",
-    sans-serif;
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.08em;
-  color: $lcg-1;
+  @include common-button-style;
+  @include transparent-button-style;
 
+  letter-spacing: -0.08em;
   margin-top: 3px;
   padding: 15px 32px 12px 30px;
-  border: 1px solid $lcg-1;
-  border-radius: 5px;
 
   &:hover,
   &:focus {
     @media (min-width: $desktop-width) {
       color: $mcg-2;
-      border-color: currentColor;
     }
   }
 
