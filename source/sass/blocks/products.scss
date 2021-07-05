@@ -13,11 +13,12 @@
   }
 
   @media (max-width: $pre-desktop-width) {
-    padding-top: 53px;
-    padding-bottom: 44px;
+    padding-top: 15px;
+    padding-bottom: 30px;
   }
 
   @media (max-width: $pre-tablet-width) {
+    padding-top: 20px;
     padding-bottom: 34px;
   }
 }
@@ -28,11 +29,11 @@
   }
 
   @media (max-width: $pre-desktop-width) {
-    margin-bottom: 46px;
+    margin-bottom: 52px;
   }
 
   @media (max-width: $pre-tablet-width) {
-    margin-bottom: 37px;
+    margin-bottom: 44px;
   }
 
   p {
@@ -46,11 +47,17 @@
     @media (max-width: $pre-desktop-width) {
       font-size: 32px;
       line-height: 45px;
+
+      width: 85%;
     }
 
     @media (max-width: $pre-tablet-width) {
       font-size: 28px;
       line-height: 39px;
+
+      width: 93.5%;
+      margin-left: 11px;
+      letter-spacing: -0.06em;
     }
   }
 }
@@ -75,8 +82,8 @@
   }
 
   @media (max-width: $pre-desktop-width) {
-    width: 100%;
-    margin-bottom: 34px;
+    width: 99.9%;
+    margin-bottom: 47px;
   }
 
   @media (max-width: $pre-tablet-width) {
@@ -92,102 +99,11 @@
       margin-right: 0;
     }
   }
-
-  // img {
-  //   @media (max-width: $pre-desktop-width) {
-  //     width: 715px;
-  //     height: 256px;
-  //   }
-
-  //   @media (max-width: $pre-tablet-width) {
-  //     width: 290px;
-  //     height: 256px;
-  //   }
-  // }
 }
 
 .products__link {
   width: 100%;
   position: relative;
-
-  &--production,
-  &--assembly {
-    span {
-      @media (min-width: $desktop-width) {
-        width: 50%;
-      }
-    }
-  }
-
-  &--accessories {
-    span {
-      @media (min-width: $desktop-width) {
-        width: 45%;
-      }
-    }
-  }
-
-  // span,
-  // &::before,
-  // &::after {
-  //   position: absolute;
-  // }
-
-  // span,
-  // &::after {
-  //   z-index: 1;
-  // }
-
-  // &::before,
-  // &::after {
-  //   content: "";
-  // }
-
-  // &::before {
-  //   top: 89.3%;
-  //   left: 89.5%;
-  //   transform: rotate(135deg);
-  //   z-index: 2;
-
-  //   border: 0.2em solid $lcg-1;
-  //   border-right-color: transparent;
-  //   border-bottom-color: transparent;
-
-  //   @media (min-width: $desktop-width) {
-  //     width: 3.4%;
-  //     height: 2%;
-  //   }
-
-  //   @media (max-width: $pre-desktop-width) {
-  //     width: 0.559441%;
-  //     height: 3.125%;
-  //   }
-
-  //   @media (max-width: $pre-tablet-width) {
-  //     width: 1.37931%;
-  //   }
-  // }
-
-  // &::after {
-  //   top: 100%;
-  //   left: 100%;
-  //   transform: translate(-100.5%, -152%);
-  //   background-color: $mcg-1;
-
-  //   @media (min-width: $desktop-width) {
-  //     width: 17.027027%;
-  //     height: 9.65%;
-  //   }
-
-  //   @media (max-width: $pre-desktop-width) {
-  //     width: 8.8112%;
-  //     height: 24.609375%;
-  //   }
-
-  //   @media (max-width: $pre-tablet-width) {
-  //     width: 21.724138%;
-  //   }
-  // }
 
   span {
     font-size: 20px;
@@ -198,37 +114,48 @@
     z-index: 1;
 
     @media (min-width: $desktop-width) {
-      top: 51px;
-      left: 44px;
+      top: 7.55%;
+      left: 12.2%;
     }
 
     @media (max-width: $pre-desktop-width) {
-      top: 43px;
-      left: 44px;
+      top: 15.5%;
+      left: 6.1%;
     }
 
     @media (max-width: $pre-tablet-width) {
-      top: 23px;
-      left: 35px;
+      top: 8%;
+      left: 12%;
     }
   }
 
-  // &:hover,
-  // &:focus {
-  //   &::before {
-  //     border-color: $mcg-1;
-  //     border-right-color: transparent;
-  //     border-bottom-color: transparent;
-  //   }
+  &--production {
+    span {
+      width: 150px;
+    }
+  }
 
-  //   &::after {
-  //     background-color: $lcg-1;
-  //   }
-  // }
+  &--assembly {
+    span {
+      width: 180px;
+    }
+  }
 
-  // &:active {
-  //   transform: translateY(3px);
-  // }
+  &--accessories {
+    span {
+      width: 160px;
+
+      @media (max-width: $pre-desktop-width) {
+        top: 18.5%;
+        left: 6.3%;
+      }
+
+      @media (max-width: $pre-tablet-width) {
+        top: 12%;
+        left: 12%;
+      }
+    }
+  }
 
   &:hover,
   &:focus {
@@ -261,6 +188,7 @@
   @media (max-width: $pre-desktop-width) {
     width: 8.8112%;
     height: 24.609375%;
+    transform: translate(-101%, -100%);
   }
 
   @media (max-width: $pre-tablet-width) {
