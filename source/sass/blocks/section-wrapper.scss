@@ -1,5 +1,7 @@
 .section-wrapper {
-  @include background-properties;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50% 36%;
   background-color: $lcg-1;
 
   @media (min-width: $desktop-width) {
@@ -9,8 +11,8 @@
       background-image: $section-wrapper-bg-large-2x;
     }
 
-    padding-top: 106px;
-    padding-bottom: 74px;
+    padding-top: 104px;
+    padding-bottom: 78px;
   }
 
   @media (max-width: $pre-desktop-width) {

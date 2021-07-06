@@ -10,8 +10,8 @@
       background-image: $consultation-bg-large-2x;
     }
 
-    padding-top: 96px;
-    padding-bottom: 113px;
+    padding-top: 90px;
+    padding-bottom: 109px;
   }
 
   @media (max-width: $pre-desktop-width) {
@@ -49,17 +49,62 @@
     }
   }
 
+  label:not(input[type="checkbox"] + label) {
+    @include visually-hidden;
+  }
+
+  input,
+  textarea {
+    font-size: 16px;
+    line-height: 21.5px;
+
+    border: none;
+    outline: none;
+    padding-left: 17px;
+
+    &:hover,
+    &:focus {
+      outline: 1px solid $lcg-1;
+      outline-offset: -1px;
+    }
+  }
+
+  input,
+  textarea,
+  button[type="submit"] {
+    background-color: $mcg-3;
+  }
+
+  textarea {
+    @media (min-width: $desktop-width) {
+      height: 154px;
+      padding-top: 13px;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      height: 160px;
+      padding-top: 14px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      height: 104px;
+    }
+  }
+
   button[type="submit"] {
     @include common-button-style;
     @include transparent-button-style;
+    letter-spacing: -0.06em;
     background-color: transparent;
 
     @media (min-width: $desktop-width) {
       width: 270px;
+      height: 45px;
     }
 
     @media (max-width: $pre-desktop-width) {
       width: 47.4576%;
+      height: 47px;
     }
 
     @media (max-width: $pre-tablet-width) {
@@ -95,11 +140,12 @@
   width: 100%;
 
   p {
+    @include zero-edges;
     width: 100%;
   }
 
   &--upper {
-    margin-bottom: 7px;
+    margin-bottom: 11px;
 
     @media (max-width: $pre-tablet-width) {
       margin-bottom: 37px;
@@ -107,11 +153,13 @@
 
     p {
       @include text-style-kit;
+      letter-spacing: -0.053em;
     }
   }
+
   &--lower {
     @media (min-width: $desktop-width) {
-      margin-bottom: 49px;
+      margin-bottom: 50px;
     }
 
     @media (max-width: $pre-desktop-width) {
@@ -142,8 +190,63 @@
     }
   }
 
+  &--consent {
+    @media (min-width: $desktop-width) {
+      width: 230px;
+      padding-top: 6px;
+    }
+
+    label {
+      font-size: 14px;
+      line-height: 16px;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        cursor: pointer;
+      }
+
+      &::before {
+        top: 2px;
+        left: -33px;
+        width: 17px;
+        height: 16px;
+        border: 1px solid $lcg-1;
+      }
+
+      &::after {
+        @include background-properties;
+        background-color: transparent;
+        background-image: $check-bg;
+        top: 4px;
+        left: -30px;
+        width: 11px;
+        height: 10px;
+        display: none;
+      }
+    }
+  }
+
   input {
     width: 100%;
+    height: 50px;
+    color: inherit;
+
+    &::placeholder {
+      color: inherit;
+    }
+  }
+
+  input[type="checkbox"] {
+    @include visually-hidden;
+
+    &:checked {
+      & + label::after {
+        display: block;
+      }
+    }
   }
 }
 
@@ -151,7 +254,7 @@
   width: 100%;
 
   @media (min-width: $desktop-width) {
-    margin-bottom: 43px;
+    margin-bottom: 38px;
   }
 
   @media (max-width: $pre-desktop-width) {
@@ -163,6 +266,8 @@
   }
 
   textarea {
-    resize: none
+    color: inherit;
+    width: 100%;
+    resize: none;
   }
 }
