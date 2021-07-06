@@ -264,3 +264,71 @@
     }
   }
 })();
+
+(function () {
+  var START_VALUE = '+7(';
+
+  if (window.localStorage) {
+    var elements = document.querySelectorAll('[name]')
+      ? Array.from(document.querySelectorAll('[name]'))
+      : null;
+
+    if (elements.length) {
+      elements.forEach(function (element) {
+        var name = element.getAttribute('name');
+        element.value = localStorage.getItem(name) || element.value;
+        element.onkeyup = function () {
+          localStorage.setItem(name, element.value);
+        };
+      });
+    }
+  }
+
+  var phones = document.querySelectorAll('input[type="tel"]')
+    ? Array.from(document.querySelectorAll('input[type="tel"]'))
+    : null;
+
+  if (phones.length) {
+    phones.forEach(function (it) {
+      it.addEventListener('focus', onPhoneFocus);
+      it.addEventListener('input', onPhoneInput);
+    });
+  }
+
+  function onPhoneFocus(evt) {
+    if (evt.target.matches('input[type="tel"]')) {
+      var input = evt.target;
+      var value = typeof input.value === 'string'
+        ? input.value
+        : String(input.value);
+
+      if (value === '') {
+        input.value = START_VALUE;
+      }
+    }
+
+    return;
+  }
+
+  function onPhoneInput(evt) {
+    var prevLength = evt.target.value.length;
+    var selectionStart = evt.target.selectionStart;
+
+    var numbers = evt.target.value
+        .replace('+7', '')
+        .replace(/\D/g, '')
+        .slice(0, 11);
+
+    var x = numbers.match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+
+    var firstPart = x[1] ? '7(' + x[1] : '';
+    var secondPart = x[2] ? ')' + x[2] : '';
+    var thirdPart = x[3] ? '-' + x[3] : '';
+
+    var res = firstPart + secondPart + thirdPart;
+
+    evt.target.value = res ? '+' + res : '';
+
+    evt.target.selectionEnd = selectionStart + evt.target.value.length - prevLength;
+  }
+})();
