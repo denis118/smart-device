@@ -20,8 +20,8 @@
   }
 
   @media (max-width: $pre-tablet-width) {
-    padding-top: 33px;
-    padding-bottom: 41px;
+    padding-top: 30px;
+    padding-bottom: 36px;
   }
 
   .container {
@@ -62,7 +62,7 @@
     outline: none;
     padding-left: 17px;
 
-    @media (max-width: $pre-desktop-width) {
+    @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
       padding-left: 20px;
     }
 
@@ -113,14 +113,13 @@
 
     @media (max-width: $pre-tablet-width) {
       width: 100%;
+      margin-bottom: 20px;
     }
 
     &:hover,
     &:focus {
-      @media (min-width: $desktop-width) {
-        color: $mcg-1;
-        background-color: $lcg-1;
-      }
+      color: $mcg-1;
+      background-color: $lcg-1;
     }
 
     &:active {
@@ -159,6 +158,10 @@
       margin-bottom: 19px;
     }
 
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 13px;
+    }
+
     p {
       @include text-style-kit;
       letter-spacing: -0.053em;
@@ -175,7 +178,7 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      margin-bottom: 40px;
+      margin-bottom: 27px;
     }
   }
 }
@@ -196,6 +199,20 @@
       width: 100%;
       margin-bottom: 30px;
     }
+
+    input {
+      width: 100%;
+      height: 50px;
+      color: inherit;
+
+      @media (max-width: $pre-tablet-width) {
+        height: 52px;
+      }
+
+      &::placeholder {
+        color: inherit;
+      }
+    }
   }
 
   &--consent {
@@ -207,6 +224,11 @@
     @media (max-width: $pre-desktop-width) {
       width: 40.3389%;
       padding-top: 5px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      width: 88%;
+      align-self: flex-end;
     }
 
     label {
@@ -222,8 +244,8 @@
       }
 
       &::before {
-        top: 2px;
-        left: -33px;
+        top: 3px;
+        left: -34px;
         width: 17px;
         height: 16px;
         border: 1px solid $lcg-1;
@@ -239,16 +261,6 @@
         height: 10px;
         display: none;
       }
-    }
-  }
-
-  input {
-    width: 100%;
-    height: 50px;
-    color: inherit;
-
-    &::placeholder {
-      color: inherit;
     }
   }
 
@@ -275,7 +287,7 @@
   }
 
   @media (max-width: $pre-tablet-width) {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
   }
 
   textarea {
