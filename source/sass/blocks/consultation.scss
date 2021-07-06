@@ -15,8 +15,8 @@
   }
 
   @media (max-width: $pre-desktop-width) {
-    padding-top: 83px;
-    padding-bottom: 103px;
+    padding-top: 78px;
+    padding-bottom: 101px;
   }
 
   @media (max-width: $pre-tablet-width) {
@@ -61,6 +61,10 @@
     border: none;
     outline: none;
     padding-left: 17px;
+
+    @media (max-width: $pre-desktop-width) {
+      padding-left: 20px;
+    }
 
     &:hover,
     &:focus {
@@ -130,7 +134,7 @@
   justify-content: space-between;
   width: 100%;
 
-  @media (max-width: $pre-desktop-width) {
+  @media (max-width: $pre-tablet-width) {
     @include column-flex;
     justify-content: flex-start;
   }
@@ -151,6 +155,10 @@
       margin-bottom: 37px;
     }
 
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 19px;
+    }
+
     p {
       @include text-style-kit;
       letter-spacing: -0.053em;
@@ -163,7 +171,7 @@
     }
 
     @media (max-width: $pre-desktop-width) {
-      margin-bottom: 51px;
+      margin-bottom: 53px;
     }
 
     @media (max-width: $pre-tablet-width) {
@@ -194,6 +202,11 @@
     @media (min-width: $desktop-width) {
       width: 230px;
       padding-top: 6px;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      width: 40.3389%;
+      padding-top: 5px;
     }
 
     label {
@@ -258,7 +271,7 @@
   }
 
   @media (max-width: $pre-desktop-width) {
-    margin-bottom: 45px;
+    margin-bottom: 40px;
   }
 
   @media (max-width: $pre-tablet-width) {
