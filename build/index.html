@@ -13,7 +13,7 @@
 </head>
 
 <!-- .modal-open -->
-<body class="modal-open">
+<body>
   <header>
     <a class="logo logo--header">
       <picture>
@@ -55,7 +55,7 @@
       </li>
     </ul>
 
-    <a class="ring-trigger link hidden-before-desktop" href="#" aria-label="Кнопка для заказа обратного звонка">Заказать&nbsp;звонок</a>
+    <a class="ring-trigger link hidden-before-desktop" href="#" id="ring-trigger" aria-label="Кнопка для заказа обратного звонка">Заказать&nbsp;звонок</a>
   </header>
 
   <main>
@@ -288,25 +288,25 @@
 
         <form action="https://echo.htmlacademy.ru/" method="POST" autocomplete="off">
           <div class="consultation__form-box">
-            <button class="consultation__cross-btn button visible-in-modal hidden-entity" type="button" aria-label="Кнопка закрытия формы">
+            <button class="consultation__cross-btn button hidden-entity" type="button" aria-label="Кнопка закрытия формы">
               <svg class="consultation__cross-svg" width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <use xlink:href="#icon-cross"></use>
               </svg>
             </button>
 
-            <div class="consultation__text-box consultation__text-box--upper hidden-in-modal">
+            <div class="consultation__text-box consultation__text-box--upper">
               <p>Остались вопросы? Задайте их нам!</p>
             </div>
 
-            <div class="consultation__text-box consultation__text-box--upper visible-in-modal hidden-entity">
+            <div class="consultation__text-box consultation__text-box--upper hidden-entity">
               <p>Закажите звонок</p>
             </div>
 
-            <div class="consultation__text-box consultation__text-box--lower hidden-in-modal">
+            <div class="consultation__text-box consultation__text-box--lower">
               <p>Мы проконсультируем Вас бесплатно</p>
             </div>
 
-            <div class="consultation__text-box consultation__text-box--lower visible-in-modal hidden-entity">
+            <div class="consultation__text-box consultation__text-box--lower hidden-entity">
               <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
             </div>
 
@@ -326,9 +326,9 @@
             </div>
 
             <button type="submit" aria-label="Кнопка отправки формы с вопросом">
-              <span class="hidden-in-modal">Задать вопрос</span>
+              <span>Задать вопрос</span>
 
-              <span class="visible-in-modal hidden-entity">Отправить</span>
+              <span class="hidden-entity">Отправить</span>
             </button>
 
             <div class="consultation__input-wrapper consultation__input-wrapper--consent">
@@ -479,7 +479,7 @@
   </footer>
 
   <!--.hidden-entity -->
-  <div class="overlay" id="modal">
+  <div class="overlay hidden-entity" id="modal">
     <section class="consultation consultation--modal" id="consultation-modal">
       <div class="container container--modal">
         <h2 class="visually-hidden">Обратная связь</h2>
@@ -487,33 +487,25 @@
         <form action="https://echo.htmlacademy.ru/" method="POST" autocomplete="off">
           <div class="consultation__form-box consultation__form-box--modal">
 
-            <!--.hidden-entity -->
-            <!-- .visible-in-modal -->
-            <button class="consultation__cross-btn button visible-in-modal" type="button" aria-label="Кнопка закрытия формы">
+            <button class="consultation__cross-btn button" type="button" id="cross" aria-label="Кнопка закрытия формы">
               <svg width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <use xlink:href="#icon-cross"></use>
               </svg>
             </button>
 
-            <!-- .hidden-in-modal -->
-            <div class="consultation__text-box consultation__text-box--upper hidden-in-modal hidden-entity">
+            <div class="consultation__text-box consultation__text-box--upper hidden-entity">
               <p>Остались вопросы? Задайте их нам!</p>
             </div>
 
-            <!--.hidden-entity -->
-            <!-- .visible-in-modal -->
-            <div class="consultation__text-box consultation__text-box--upper consultation__text-box--top-modal visible-in-modal">
+            <div class="consultation__text-box consultation__text-box--upper consultation__text-box--top-modal">
               <p>Закажите звонок</p>
             </div>
 
-            <!-- .hidden-in-modal -->
-            <div class="consultation__text-box consultation__text-box--lower hidden-in-modal hidden-entity">
+            <div class="consultation__text-box consultation__text-box--lower hidden-entity">
               <p>Мы проконсультируем Вас бесплатно</p>
             </div>
 
-            <!--.hidden-entity -->
-            <!-- .visible-in-modal -->
-            <div class="consultation__text-box consultation__text-box--lower consultation__text-box--bottom-modal visible-in-modal">
+            <div class="consultation__text-box consultation__text-box--lower consultation__text-box--bottom-modal">
               <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
             </div>
 
@@ -533,9 +525,9 @@
             </div>
 
             <button type="submit" aria-label="Кнопка отправки формы с вопросом">
-              <span class="hidden-in-modal hidden-entity">Задать вопрос</span>
+              <span class="hidden-entity">Задать вопрос</span>
 
-              <span class="visible-in-modal">Отправить</span>
+              <span>Отправить</span>
             </button>
 
             <div class="consultation__input-wrapper consultation__input-wrapper--consent consultation__input-wrapper--modal consultation__input-wrapper--narrow">

@@ -334,7 +334,56 @@
 })();
 
 
-// form
+// modal
 (function () {
+  var Maybe = window.monad.Maybe;
+  var trigger = new Maybe(document.querySelector('a[id="ring-trigger"]'));
+  var modal = new Maybe(document.querySelector('div[id="modal"]'));
+  var cross = new Maybe(document.querySelector('button[id="cross"]'));
 
-})()
+  if (trigger.operand && modal.operand && cross.operand) {
+    trigger = trigger.operand;
+    modal = modal.operand;
+    cross = cross.operand;
+
+    trigger.addEventListener('click', onTriggerClick);
+  }
+
+  function onTriggerClick(evt) {
+    evt.preventDefault();
+    modal.classList.remove('hidden-entity');
+    document.body.classList.add('modal-open');
+
+    modal.addEventListener('click', onModalClick);
+    document.addEventListener('keydown', onDocumentKeydown);
+    cross.addEventListener('click', onCrossClick);
+  }
+
+  function onModalClick(evt) {
+    if (!Object.is(evt.target, modal)) {
+      return;
+    }
+
+    onCrossClick(evt);
+  }
+
+  function onDocumentKeydown(evt) {
+    if (isEscEvent(evt)) {
+      onCrossClick(evt);
+    }
+  }
+
+  function onCrossClick(evt) {
+    evt.preventDefault();
+    modal.classList.add('hidden-entity');
+    document.body.classList.remove('modal-open');
+
+    modal.removeEventListener('click', onModalClick);
+    document.removeEventListener('keydown', onDocumentKeydown);
+    cross.removeEventListener('click', onCrossClick);
+  }
+
+  function isEscEvent(evt) {
+    return evt.key === ('Escape' || 'Esc');
+  }
+})();

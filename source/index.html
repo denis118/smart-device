@@ -40,8 +40,7 @@
 </head>
 
 <!-- .modal-open -->
-<body
-  class="modal-open">
+<body>
   <header>
     <a
       class="logo logo--header">
@@ -116,6 +115,7 @@
     <a
       class="ring-trigger link hidden-before-desktop"
       href="#"
+      id="ring-trigger"
       aria-label="Кнопка для заказа обратного звонка">Заказать&nbsp;звонок</a>
   </header>
 
@@ -502,7 +502,7 @@
           <div
             class="consultation__form-box">
             <button
-              class="consultation__cross-btn button visible-in-modal hidden-entity"
+              class="consultation__cross-btn button hidden-entity"
               type="button"
               aria-label="Кнопка закрытия формы">
               <svg
@@ -517,22 +517,22 @@
             </button>
 
             <div
-              class="consultation__text-box consultation__text-box--upper hidden-in-modal">
+              class="consultation__text-box consultation__text-box--upper">
               <p>Остались вопросы? Задайте их нам!</p>
             </div>
 
             <div
-              class="consultation__text-box consultation__text-box--upper visible-in-modal hidden-entity">
+              class="consultation__text-box consultation__text-box--upper hidden-entity">
               <p>Закажите звонок</p>
             </div>
 
             <div
-              class="consultation__text-box consultation__text-box--lower hidden-in-modal">
+              class="consultation__text-box consultation__text-box--lower">
               <p>Мы проконсультируем Вас бесплатно</p>
             </div>
 
             <div
-              class="consultation__text-box consultation__text-box--lower visible-in-modal hidden-entity">
+              class="consultation__text-box consultation__text-box--lower hidden-entity">
               <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
             </div>
 
@@ -576,11 +576,10 @@
             <button
               type="submit"
               aria-label="Кнопка отправки формы с вопросом">
-              <span
-                class="hidden-in-modal">Задать вопрос</span>
+              <span>Задать вопрос</span>
 
               <span
-                class="visible-in-modal hidden-entity">Отправить</span>
+                class="hidden-entity">Отправить</span>
             </button>
 
             <div
@@ -840,7 +839,7 @@
 
   <!--.hidden-entity -->
   <div
-    class="overlay"
+    class="overlay hidden-entity"
     id="modal">
     <section
       class="consultation consultation--modal"
@@ -857,11 +856,10 @@
           <div
             class="consultation__form-box consultation__form-box--modal">
 
-            <!--.hidden-entity -->
-            <!-- .visible-in-modal -->
             <button
-              class="consultation__cross-btn button visible-in-modal"
+              class="consultation__cross-btn button"
               type="button"
+              id="cross"
               aria-label="Кнопка закрытия формы">
               <svg
                 width="17"
@@ -873,29 +871,23 @@
               </svg>
             </button>
 
-            <!-- .hidden-in-modal -->
             <div
-              class="consultation__text-box consultation__text-box--upper hidden-in-modal hidden-entity">
+              class="consultation__text-box consultation__text-box--upper hidden-entity">
               <p>Остались вопросы? Задайте их нам!</p>
             </div>
 
-            <!--.hidden-entity -->
-            <!-- .visible-in-modal -->
             <div
-              class="consultation__text-box consultation__text-box--upper consultation__text-box--top-modal visible-in-modal">
+              class="consultation__text-box consultation__text-box--upper consultation__text-box--top-modal">
               <p>Закажите звонок</p>
             </div>
 
-            <!-- .hidden-in-modal -->
             <div
-              class="consultation__text-box consultation__text-box--lower hidden-in-modal hidden-entity">
+              class="consultation__text-box consultation__text-box--lower hidden-entity">
               <p>Мы проконсультируем Вас бесплатно</p>
             </div>
 
-            <!--.hidden-entity -->
-            <!-- .visible-in-modal -->
             <div
-              class="consultation__text-box consultation__text-box--lower consultation__text-box--bottom-modal visible-in-modal">
+              class="consultation__text-box consultation__text-box--lower consultation__text-box--bottom-modal">
               <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
             </div>
 
@@ -940,10 +932,9 @@
               type="submit"
               aria-label="Кнопка отправки формы с вопросом">
               <span
-                class="hidden-in-modal hidden-entity">Задать вопрос</span>
+                class="hidden-entity">Задать вопрос</span>
 
-              <span
-                class="visible-in-modal">Отправить</span>
+              <span>Отправить</span>
             </button>
 
             <div
