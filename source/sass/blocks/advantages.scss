@@ -31,7 +31,7 @@
   @media (min-width: $desktop-width) {
     width: 48.7179%;
     min-height: 299px;
-    padding-top: 40px;
+    padding-top: 45px;
     padding-left: 45px;
     padding-right: 43px;
   }
@@ -106,7 +106,7 @@
   fill: --icon-color;
 
   @media (min-width: $desktop-width) {
-    margin-bottom: 23px;
+    margin-bottom: 20px;
   }
 
   @media (max-width: $pre-desktop-width) {
@@ -132,6 +132,10 @@
 }
 
 .advantages__detective-svg {
+  @media (min-width: $desktop-width) {
+    margin-bottom: 23px;
+  }
+
   @media (max-width: $pre-tablet-width) {
     width: 30px;
     height: 26px;

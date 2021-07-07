@@ -1,17 +1,29 @@
-.contacts {
-  @media (min-width: $desktop-width) {
-    margin-right: 2.7%;
-    padding-right: 10px;
-    color: $lcg-1;
-  }
-}
+// .contacts {
+//   @media (min-width: $desktop-width) {
+//     margin-right: 2.7%;
+//     padding-right: 10px;
+//     color: $lcg-1;
+//   }
+// }
 
-.contacts__list {
+// .contacts__list {
+//   @include casual-flex;
+//   width: max-content;
+
+//   @media (min-width: $desktop-width) {
+//     padding-top: 12px;
+//   }
+// }
+
+.contacts {
   @include casual-flex;
   width: max-content;
 
   @media (min-width: $desktop-width) {
+    margin-right: 2.7%;
     padding-top: 12px;
+    padding-right: 10px;
+    color: $lcg-1;
   }
 }
 
