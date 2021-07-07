@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="./css/style.min.css">
   <title>Печатные платы</title>
 </head>
-<body>
+
+<!-- .modal-open -->
+<body class="modal-open">
   <header>
     <a class="logo logo--header">
       <picture>
@@ -286,12 +288,26 @@
 
         <form action="https://echo.htmlacademy.ru/" method="POST" autocomplete="off">
           <div class="consultation__form-box">
-            <div class="consultation__text-box consultation__text-box--upper">
+            <button class="consultation__cross-btn button visible-in-modal hidden-entity" type="button" aria-label="Кнопка закрытия формы">
+              <svg class="consultation__cross-svg" width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <use xlink:href="#icon-cross"></use>
+              </svg>
+            </button>
+
+            <div class="consultation__text-box consultation__text-box--upper hidden-in-modal">
               <p>Остались вопросы? Задайте их нам!</p>
             </div>
 
-            <div class="consultation__text-box consultation__text-box--lower">
+            <div class="consultation__text-box consultation__text-box--upper visible-in-modal hidden-entity">
+              <p>Закажите звонок</p>
+            </div>
+
+            <div class="consultation__text-box consultation__text-box--lower hidden-in-modal">
               <p>Мы проконсультируем Вас бесплатно</p>
+            </div>
+
+            <div class="consultation__text-box consultation__text-box--lower visible-in-modal hidden-entity">
+              <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
             </div>
 
             <div class="consultation__input-wrapper consultation__input-wrapper--username">
@@ -309,7 +325,11 @@
               <textarea name="question" id="question" cols="30" rows="10" required="">Ваш вопрос</textarea>
             </div>
 
-            <button type="submit" aria-label="Кнопка отправки формы с вопросом"><span>Задать вопрос</span></button>
+            <button type="submit" aria-label="Кнопка отправки формы с вопросом">
+              <span class="hidden-in-modal">Задать вопрос</span>
+
+              <span class="visible-in-modal hidden-entity">Отправить</span>
+            </button>
 
             <div class="consultation__input-wrapper consultation__input-wrapper--consent">
               <input type="checkbox" name="consent" id="consent" required="" checked="">
@@ -457,6 +477,80 @@
       </div>
     </section>
   </footer>
+
+  <!--.hidden-entity -->
+  <div class="overlay" id="modal">
+    <section class="consultation consultation--modal" id="consultation-modal">
+      <div class="container container--modal">
+        <h2 class="visually-hidden">Обратная связь</h2>
+
+        <form action="https://echo.htmlacademy.ru/" method="POST" autocomplete="off">
+          <div class="consultation__form-box consultation__form-box--modal">
+
+            <!--.hidden-entity -->
+            <!-- .visible-in-modal -->
+            <button class="consultation__cross-btn button visible-in-modal" type="button" aria-label="Кнопка закрытия формы">
+              <svg width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <use xlink:href="#icon-cross"></use>
+              </svg>
+            </button>
+
+            <!-- .hidden-in-modal -->
+            <div class="consultation__text-box consultation__text-box--upper hidden-in-modal hidden-entity">
+              <p>Остались вопросы? Задайте их нам!</p>
+            </div>
+
+            <!--.hidden-entity -->
+            <!-- .visible-in-modal -->
+            <div class="consultation__text-box consultation__text-box--upper consultation__text-box--top-modal visible-in-modal">
+              <p>Закажите звонок</p>
+            </div>
+
+            <!-- .hidden-in-modal -->
+            <div class="consultation__text-box consultation__text-box--lower hidden-in-modal hidden-entity">
+              <p>Мы проконсультируем Вас бесплатно</p>
+            </div>
+
+            <!--.hidden-entity -->
+            <!-- .visible-in-modal -->
+            <div class="consultation__text-box consultation__text-box--lower consultation__text-box--bottom-modal visible-in-modal">
+              <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+            </div>
+
+            <div class="consultation__input-wrapper consultation__input-wrapper--username consultation__input-wrapper--modal">
+              <label for="name-modal">Ваше имя</label>
+              <input type="text" name="name-modal" id="name-modal" placeholder="Имя" required="">
+            </div>
+
+            <div class="consultation__input-wrapper consultation__input-wrapper--username consultation__input-wrapper--modal">
+              <label for="phone-modal">Ваш номер телефона</label>
+              <input type="tel" name="telephone-modal" id="phone-modal" placeholder="Телефон" pattern="\+7\([0-9]{3}\)[0-9]{3}-[0-9]{4}" required="">
+            </div>
+
+            <div class="consultation__textarea-wrapper consultation__textarea-wrapper--modal">
+              <label for="question-modal">Ваш вопрос</label>
+              <textarea name="question-modal" id="question-modal" cols="30" rows="10" required="">Ваш вопрос</textarea>
+            </div>
+
+            <button type="submit" aria-label="Кнопка отправки формы с вопросом">
+              <span class="hidden-in-modal hidden-entity">Задать вопрос</span>
+
+              <span class="visible-in-modal">Отправить</span>
+            </button>
+
+            <div class="consultation__input-wrapper consultation__input-wrapper--consent consultation__input-wrapper--modal consultation__input-wrapper--narrow">
+              <input type="checkbox" name="consent-modal" id="consent-modal" required="" checked="">
+              <label for="consent-modal">Я согласен на обработку  персональных данных</label>
+
+              <svg class="consultation__check-svg" width="9" height="6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <use xlink:href="#icon-check"></use>
+              </svg>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
 
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">
 

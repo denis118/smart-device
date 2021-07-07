@@ -125,16 +125,17 @@
     &:active {
       opacity: 0.7;
     }
-
-    &--modal {
-      width: 100%;
-    }
   }
 
   &--modal {
+    position: absolute;
+    top: 135px;
+    left: 50%;
+    transform: translateX(-50%);
+
     max-width: 490px;
     width: 25.520833%;
-    padding-top: 33px;
+    padding-top: 30px;
     padding-bottom: 36px;
     background-image: none;
 
@@ -144,6 +145,20 @@
 
     form {
       width: 100%;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+
+    input,
+    textarea {
+      padding-left: 23px;
+    }
+
+    textarea {
+      height: 104px;
     }
   }
 }
@@ -156,6 +171,10 @@
   @media (max-width: $pre-tablet-width) {
     @include column-flex;
     justify-content: flex-start;
+  }
+
+  &--modal {
+    @include column-flex;
   }
 }
 
@@ -199,6 +218,22 @@
 
     @media (max-width: $pre-tablet-width) {
       margin-bottom: 27px;
+    }
+  }
+
+  &--top-modal {
+    p {
+      font-size: 28px;
+      line-height: 39px;
+      letter-spacing: -0.041em;
+    }
+  }
+
+  &--bottom-modal {
+    margin-bottom: 34px;
+
+    p {
+      width: 90%;
     }
   }
 }
@@ -287,10 +322,6 @@
           --icon-color: #{$mcg-2};
         }
       }
-
-      &--modal {
-        width: 100%;
-      }
     }
 
     .consultation__check-svg {
@@ -314,6 +345,29 @@
 
   &--modal {
     width: 100%;
+    margin-bottom: 31px;
+
+    input {
+      height: 52px;
+    }
+  }
+
+  &--narrow {
+    width: 80%;
+    align-self: flex-start;
+    margin-left: 12%;
+    margin-bottom: 0;
+
+    label {
+      &::before {
+        top: 2px;
+        left: -50px;
+      }
+    }
+
+    .consultation__check-svg {
+      left: -47px;
+    }
   }
 
   input[type="checkbox"] {
@@ -346,5 +400,35 @@
     color: inherit;
     width: 100%;
     resize: none;
+  }
+
+  &--modal {
+    margin-bottom: 24px;
+  }
+}
+
+.consultation__cross-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  transform: translate(-110%, 110%);
+  background-color: transparent;
+
+  svg {
+    --icon-color: #{$lcg-1};
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      --icon-color: #{$mcg-2};
+    }
+  }
+
+  &:active {
+    opacity: 0.5;
   }
 }

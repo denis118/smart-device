@@ -38,7 +38,10 @@
     href="./css/style.min.css">
   <title>Печатные платы</title>
 </head>
-<body>
+
+<!-- .modal-open -->
+<body
+  class="modal-open">
   <header>
     <a
       class="logo logo--header">
@@ -498,15 +501,20 @@
           autocomplete="off">
           <div
             class="consultation__form-box">
-            <svg
-              class="consultation__cross-svg visible-in-modal hidden-entity"
-              width="17"
-              height="17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use xlink:href="#icon-cross"></use>
-            </svg>
+            <button
+              class="consultation__cross-btn button visible-in-modal hidden-entity"
+              type="button"
+              aria-label="Кнопка закрытия формы">
+              <svg
+                class="consultation__cross-svg"
+                width="17"
+                height="17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <use xlink:href="#icon-cross"></use>
+              </svg>
+            </button>
 
             <div
               class="consultation__text-box consultation__text-box--upper hidden-in-modal">
@@ -830,12 +838,13 @@
     </section>
   </footer>
 
+  <!--.hidden-entity -->
   <div
-    class="overlay hidden-entity"
+    class="overlay"
     id="modal">
     <section
-      class="consultation"
-      id="consultation">
+      class="consultation consultation--modal"
+      id="consultation-modal">
       <div
         class="container container--modal">
         <h2
@@ -846,69 +855,82 @@
           method="POST"
           autocomplete="off">
           <div
-            class="consultation__form-box">
-            <svg
-              class="consultation__cross-svg visible-in-modal hidden-entity"
-              width="17"
-              height="17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use xlink:href="#icon-cross"></use>
-            </svg>
+            class="consultation__form-box consultation__form-box--modal">
 
+            <!--.hidden-entity -->
+            <!-- .visible-in-modal -->
+            <button
+              class="consultation__cross-btn button visible-in-modal"
+              type="button"
+              aria-label="Кнопка закрытия формы">
+              <svg
+                width="17"
+                height="17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <use xlink:href="#icon-cross"></use>
+              </svg>
+            </button>
+
+            <!-- .hidden-in-modal -->
             <div
-              class="consultation__text-box consultation__text-box--upper hidden-in-modal">
+              class="consultation__text-box consultation__text-box--upper hidden-in-modal hidden-entity">
               <p>Остались вопросы? Задайте их нам!</p>
             </div>
 
+            <!--.hidden-entity -->
+            <!-- .visible-in-modal -->
             <div
-              class="consultation__text-box consultation__text-box--upper visible-in-modal hidden-entity">
+              class="consultation__text-box consultation__text-box--upper consultation__text-box--top-modal visible-in-modal">
               <p>Закажите звонок</p>
             </div>
 
+            <!-- .hidden-in-modal -->
             <div
-              class="consultation__text-box consultation__text-box--lower hidden-in-modal">
+              class="consultation__text-box consultation__text-box--lower hidden-in-modal hidden-entity">
               <p>Мы проконсультируем Вас бесплатно</p>
             </div>
 
+            <!--.hidden-entity -->
+            <!-- .visible-in-modal -->
             <div
-              class="consultation__text-box consultation__text-box--lower visible-in-modal hidden-entity">
+              class="consultation__text-box consultation__text-box--lower consultation__text-box--bottom-modal visible-in-modal">
               <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
             </div>
 
             <div
-              class="consultation__input-wrapper consultation__input-wrapper--username">
+              class="consultation__input-wrapper consultation__input-wrapper--username consultation__input-wrapper--modal">
               <label
-                for="name">Ваше имя</label>
+                for="name-modal">Ваше имя</label>
               <input
                 type="text"
-                name="name"
-                id="name"
+                name="name-modal"
+                id="name-modal"
                 placeholder="Имя"
                 required>
             </div>
 
             <div
-              class="consultation__input-wrapper consultation__input-wrapper--username">
+              class="consultation__input-wrapper consultation__input-wrapper--username consultation__input-wrapper--modal">
               <label
-                for="phone">Ваш номер телефона</label>
+                for="phone-modal">Ваш номер телефона</label>
               <input
                 type="tel"
-                name="telephone"
-                id="phone"
+                name="telephone-modal"
+                id="phone-modal"
                 placeholder="Телефон"
                 pattern="\+7\([0-9]{3}\)[0-9]{3}-[0-9]{4}"
                 required>
             </div>
 
             <div
-              class="consultation__textarea-wrapper">
+              class="consultation__textarea-wrapper consultation__textarea-wrapper--modal">
               <label
-                for="question">Ваш вопрос</label>
+                for="question-modal">Ваш вопрос</label>
               <textarea
-                name="question"
-                id="question"
+                name="question-modal"
+                id="question-modal"
                 cols="30"
                 rows="10"
                 required>Ваш вопрос</textarea>
@@ -918,22 +940,22 @@
               type="submit"
               aria-label="Кнопка отправки формы с вопросом">
               <span
-                class="hidden-in-modal">Задать вопрос</span>
+                class="hidden-in-modal hidden-entity">Задать вопрос</span>
 
               <span
-                class="visible-in-modal hidden-entity">Отправить</span>
+                class="visible-in-modal">Отправить</span>
             </button>
 
             <div
-              class="consultation__input-wrapper consultation__input-wrapper--consent">
+              class="consultation__input-wrapper consultation__input-wrapper--consent consultation__input-wrapper--modal consultation__input-wrapper--narrow">
               <input
                 type="checkbox"
-                name="consent"
-                id="consent"
+                name="consent-modal"
+                id="consent-modal"
                 required
                 checked>
               <label
-                for="consent">Я согласен на обработку  персональных данных</label>
+                for="consent-modal">Я согласен на обработку  персональных данных</label>
 
               <svg
                 class="consultation__check-svg"
