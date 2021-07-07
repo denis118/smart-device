@@ -149,6 +149,10 @@
 
   &:hover,
   &:focus {
+    .products__image-box {
+      filter: sepia(1);
+    }
+
     .products__arrow-svg {
       --arrow-bg: #{$lcg-1};
       --arrow-stroke: #{$mcg-1};

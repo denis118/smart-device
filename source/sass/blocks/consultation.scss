@@ -216,6 +216,8 @@
   }
 
   &--consent {
+    position: relative;
+
     @media (min-width: $desktop-width) {
       width: 230px;
       padding-top: 6px;
@@ -235,31 +237,53 @@
       font-size: 14px;
       line-height: 16px;
       position: relative;
-
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        cursor: pointer;
-      }
+      cursor: pointer;
 
       &::before {
+        content: "";
+        position: absolute;
         top: 3px;
         left: -34px;
         width: 17px;
         height: 16px;
         border: 1px solid $lcg-1;
+
+        @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
+          top: 2px;
+          left: -32px;
+        }
       }
 
-      &::after {
-        @include background-properties;
-        background-color: transparent;
-        background-image: $check-bg;
-        top: 4px;
-        left: -30px;
-        width: 11px;
-        height: 10px;
-        display: none;
+      &:hover,
+      &:focus {
+        opacity: 0.7;
+
+        &::before {
+          border-color: $mcg-2;
+          opacity: 1;
+        }
+
+        & + .consultation__check-svg {
+          --icon-color: #{$mcg-2};
+        }
+      }
+    }
+
+    .consultation__check-svg {
+      --icon-color: #{$lcg-1};
+
+      position: absolute;
+      top: 13px;
+      left: -30px;
+      width: 11px;
+      height: 10px;
+      stroke: --icon-color;
+      cursor: pointer;
+      display: none;
+
+      @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
+        top: 13px;
+        left: -28px;
       }
     }
   }
@@ -268,7 +292,7 @@
     @include visually-hidden;
 
     &:checked {
-      & + label::after {
+      & ~ .consultation__check-svg {
         display: block;
       }
     }
