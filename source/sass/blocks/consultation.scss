@@ -125,6 +125,26 @@
     &:active {
       opacity: 0.7;
     }
+
+    &--modal {
+      width: 100%;
+    }
+  }
+
+  &--modal {
+    max-width: 490px;
+    width: 25.520833%;
+    padding-top: 33px;
+    padding-bottom: 36px;
+    background-image: none;
+
+    .container {
+      display: block;
+    }
+
+    form {
+      width: 100%;
+    }
   }
 }
 
@@ -267,6 +287,10 @@
           --icon-color: #{$mcg-2};
         }
       }
+
+      &--modal {
+        width: 100%;
+      }
     }
 
     .consultation__check-svg {
@@ -286,6 +310,10 @@
         left: -28px;
       }
     }
+  }
+
+  &--modal {
+    width: 100%;
   }
 
   input[type="checkbox"] {
