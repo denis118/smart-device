@@ -11,12 +11,6 @@
   background-size: cover;
 }
 
-@mixin pseudo-properties($index: 1) {
-  content: "";
-  position: absolute;
-  z-index: $index;
-}
-
 @mixin visually-hidden {
   position: absolute;
   clip: rect(0, 0, 0, 0);
@@ -44,13 +38,6 @@
   padding: calc((100% - #{$contentwidth}) / 2);
 }
 
-@mixin absolute-centering {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 @mixin casual-flex {
   display: flex;
   align-items: flex-start;
@@ -67,18 +54,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-@mixin centering-grid {
-  display: grid;
-  place-items: center;
-}
-
-@mixin button-hover-focus {
-  &:hover,
-  &:focus {
-    background-color: $mcg-2;
-  }
 }
 
 @mixin padded-box($width: 100%) {
