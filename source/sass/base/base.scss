@@ -19,13 +19,6 @@ body {
   line-height: 22px;
   font-weight: 400;
 
-  // display: grid;
-  // grid-template-columns: 1fr;
-  // grid-template-rows:
-  //   min-content,
-  //   1fr,
-  //   min-content;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -66,20 +59,12 @@ header {
   }
 }
 
-// footer {
-//   align-self: end;
-// }
-
 img {
   display: block;
 }
 
 .visually-hidden {
   @include visually-hidden;
-}
-
-.modal-open {
-  overflow: hidden;
 }
 
 .list {

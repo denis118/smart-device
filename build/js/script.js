@@ -18,6 +18,7 @@
   };
 })();
 
+
 // type checking
 (function () {
   function checkType(value) {
@@ -31,6 +32,7 @@
     checkType: checkType
   };
 })();
+
 
 // listeners managing
 (function () {
@@ -83,6 +85,7 @@
     manageListeners: manageListeners
   };
 })();
+
 
 // accordeon
 (function () {
@@ -231,7 +234,8 @@
   }
 })();
 
-// Скролл
+
+// scroll
 (function () {
   var Maybe = window.monad.Maybe;
   var consultationAnchor = new Maybe(document.querySelector('a[href="#consultation"]'));
@@ -265,6 +269,8 @@
   }
 })();
 
+
+// mask
 (function () {
   var START_VALUE = '+7(';
 
