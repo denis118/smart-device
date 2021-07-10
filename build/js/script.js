@@ -19,354 +19,170 @@
 })();
 
 
-// type checking
-(function () {
-  function checkType(value) {
-    var regex = /^\[object (\S+?)\]$/;
-    var matches = Object.prototype.toString.call(value).match(regex) || [];
-
-    return (matches[1] || 'undefined').toLowerCase();
-  }
-
-  window.typeChecking = {
-    checkType: checkType
-  };
-})();
-
-
-// listeners managing
-(function () {
-  function manageListeners(elements, settings) {
-    var isElementsArray = Array.isArray(elements);
-    var isSettingsObject = window.typeChecking.checkType(settings) === 'object';
-
-    if (!isElementsArray || !isSettingsObject) {
-      return;
-    }
-
-    var handlersArray = Object.entries(settings);
-
-    function callback(entries) {
-      handlersArray.forEach(function (handlers) {
-        var eventName = typeof handlers[0] === 'string'
-          ? handlers[0]
-          : String(handlers[0]);
-
-        var eventFunction = typeof handlers[1] === 'function'
-          ? handlers[1]
-          : null;
-
-        if (!eventName || eventFunction === null) {
-          return;
-        }
-      });
-
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) {
-          handlersArray.forEach(function (handlers) {
-            entry.target.removeEventListener(handlers[0], handlers[1]);
-          });
-          return;
-        }
-
-        handlersArray.forEach(function (handlers) {
-          entry.target.addEventListener(handlers[0], handlers[1]);
-        });
-      });
-    }
-
-    var observer = new IntersectionObserver(callback);
-    elements.forEach(function (it) {
-      observer.observe(it);
-    });
-  }
-
-  window.listenersManaging = {
-    manageListeners: manageListeners
-  };
-})();
-
-
 // accordeon
-// (function () {
-//   var UNITS = 'px';
-//   var TABLET_WIDTH = 768;
-
-//   var viewPort = document.documentElement.clientWidth;
-//   var children;
-//   var isChildrenHidden = false;
-//   var scrollHeightKeeping = {};
-
-//   document.addEventListener('DOMContentLoaded', function () {
-//     console.log('DOMContentLoaded');
-//     viewPort = document.documentElement.clientWidth;
-//     hideContent();
-//   });
-
-//   window.addEventListener('resize', function () {
-//     viewPort = document.documentElement.clientWidth;
-//     hideContent();
-
-//     console.log(scrollHeightKeeping);
-//   });
-
-//   var Maybe = window.monad.Maybe;
-//   var accordeon = new Maybe(document.querySelector('.accordeon'));
-//   var buttons = accordeon.map(function (element) {
-//     return Array.from(element.querySelectorAll('.accordeon__btn'));
-//   });
-//   var contents = accordeon.map(function (element) {
-//     return Array.from(element.querySelectorAll('.accordeon__content'));
-//   });
-
-//   if (buttons.operand.length && contents.operand.length) {
-//     accordeon = accordeon.operand;
-//     buttons = buttons.operand;
-//     contents = contents.operand;
-
-//     buttons.forEach(function (it) {
-//       it.classList.add('accordeon__btn--js');
-//     });
-
-//     contents.forEach(function (it) {
-//       if (viewPort < TABLET_WIDTH) {
-//         it.style.maxHeight = null;
-//       }
-//     });
-
-//     if ('IntersectionObserver' in window) {
-//       window.listenersManaging.manageListeners([accordeon], {'click': onAccordeonClick});
-//     } else {
-//       accordeon.addEventListener('click', onAccordeonClick);
-//     }
-//   }
-
-//   function hideContent() {
-//     contents.forEach(function (it) {
-//       if (viewPort < TABLET_WIDTH) {
-//         scrollHeightKeeping[it.id] = {
-//           scrollHeight: it.scrollHeight
-//         };
-
-//         it.classList.add('accordeon__content--js');
-
-//         console.log('hideContent');
-
-//         children = Array.from(it.children);
-//         hideChildren(children);
-//         isChildrenHidden = true;
-//       }
-//     });
-//   }
-
-//   function hideChildren(array) {
-//     array.forEach(function (it) {
-//       it.classList.add('hidden-entity');
-//     });
-
-//     console.log('hideChildren');
-//   }
-
-//   function showChildren(array) {
-//     array.forEach(function (it) {
-//       it.classList.remove('hidden-entity');
-//     });
-//   }
-
-//   function onAccordeonClick(evt) {
-//     if (evt.target.matches('.accordeon__btn')) {
-//       contents.forEach(function (it) {
-//         if (it === evt.target.nextElementSibling) {
-//           if (it.style.maxHeight) {
-//             it.style.maxHeight = null;
-//           } else {
-//             if (isChildrenHidden) {
-//               children = Array.from(it.children);
-//               showChildren(children);
-//             }
-
-//             console.log(scrollHeightKeeping);
-//             if (scrollHeightKeeping[it.id].scrollHeight !== 'undefined') {
-//               it.style.maxHeight = scrollHeightKeeping[it.id].scrollHeight + UNITS;
-//             }
-
-//             it.classList.add('opened');
-//           }
-
-//           var openedContents = accordeon.querySelectorAll('.opened')
-//             ? Array.from(accordeon.querySelectorAll('.opened'))
-//             : null;
-
-//           if (openedContents.length > 1) {
-//             openedContents.forEach(function (element) {
-//               if (!Object.is(element, it)) {
-//                 element.style.maxHeight = null;
-
-//                 var button = element.previousElementSibling
-//                   ? element.previousElementSibling
-//                   : null;
-
-//                 if (button) {
-//                   if (button.classList.contains('accordeon__btn--active')) {
-//                     button.classList.remove('accordeon__btn--active');
-//                   }
-//                 }
-//               }
-//             });
-//           }
-//         }
-//       });
-
-//       evt.target.classList.toggle('accordeon__btn--active');
-//     }
-//   }
-// })();
-
-
 (function () {
   var UNITS = 'px';
   var TABLET_WIDTH = 768;
 
-  var viewPort = document.documentElement.clientWidth;
-  var children;
-  var isChildrenHidden = false;
+  var accordeons;
   var scrollHeightKeeping = {};
 
-  document.addEventListener('DOMContentLoaded', callback);
+  window.addEventListener('load', function () {
+    findAccordeons();
 
-  function callback() {
-    viewPort = document.documentElement.clientWidth;
-    hideContent();
-  }
-
-  // var onWindowResize = makeHandler();
-  // window.addEventListener('resize', onWindowResize);
-
-  // function makeHandler() {
-  //   var flag = false;
-
-  //   return function () {
-  //     viewPort = document.documentElement.clientWidth;
-
-  //     if (
-  //       (viewPort > TABLET_WIDTH || viewPort === TABLET_WIDTH)
-  //       && flag
-  //     ) {
-  //       flag = false;
-  //     }
-
-  //     if (
-  //       viewPort < TABLET_WIDTH
-  //       && !flag
-  //     ) {
-  //       hideContent();
-  //       flag = true;
-  //     }
-  //   };
-  // }
-
-  var Maybe = window.monad.Maybe;
-  var accordeon = new Maybe(document.querySelector('.accordeon'));
-  var buttons = accordeon.map(function (element) {
-    return Array.from(element.querySelectorAll('.accordeon__btn'));
-  });
-  var contents = accordeon.map(function (element) {
-    return Array.from(element.querySelectorAll('.accordeon__content'));
-  });
-
-  if (buttons.operand.length && contents.operand.length) {
-    accordeon = accordeon.operand;
-    buttons = buttons.operand;
-    contents = contents.operand;
-
-    buttons.forEach(function (it) {
-      it.classList.add('accordeon__btn--js');
-    });
-
-    contents.forEach(function (it) {
-      if (viewPort < TABLET_WIDTH) {
-        it.style.maxHeight = null;
-      }
-    });
-
-    if ('IntersectionObserver' in window) {
-      window.listenersManaging.manageListeners([accordeon], {'click': onAccordeonClick});
-    } else {
-      accordeon.addEventListener('click', onAccordeonClick);
+    if (isPreTabletWidth() && accordeons.length) {
+      storeContentScrollHeight();
+      addJsStyles();
+      setEventListeners();
     }
+  });
+
+  function isPreTabletWidth() {
+    return document.documentElement.clientWidth < TABLET_WIDTH;
   }
 
-  function hideContent() {
-    contents.forEach(function (it) {
-      if (viewPort < TABLET_WIDTH) {
-        scrollHeightKeeping[it.id] = {
-          scrollHeight: it.scrollHeight
+  function findAccordeons() {
+    var Maybe = window.monad.Maybe;
+    accordeons = new Maybe(document.querySelectorAll('.accordeon'));
+    accordeons = accordeons.operand.length
+      ? Array.from(accordeons.operand)
+      : null;
+  }
+
+  function storeContentScrollHeight() {
+    accordeons.forEach(function (it) {
+      Array.from(it.querySelectorAll('.accordeon__content')).forEach(function (item) {
+        scrollHeightKeeping[item.id] = {
+          scrollHeight: item.scrollHeight
         };
-
-        it.classList.add('accordeon__content--js');
-
-        children = Array.from(it.children);
-        hideChildren(children);
-        isChildrenHidden = true;
-      }
+      });
     });
   }
 
-  function hideChildren(array) {
-    array.forEach(function (it) {
+  function addJsStyles() {
+    accordeons.forEach(function (it) {
+      Array.from(it.querySelectorAll('.accordeon__btn')).forEach(function (item) {
+        item.classList.add('accordeon__btn--js');
+      });
+
+      Array.from(it.querySelectorAll('.accordeon__content')).forEach(function (item) {
+        hideContent(item);
+      });
+    });
+  }
+
+  function hideContent(item) {
+    var children = Array.from(item.children);
+    var callback = function (it) {
+      it.classList.add('accordeon__content--js');
+      it.style.maxHeight = null;
+    };
+
+    hideChildren(item, children, callback);
+  }
+
+  function hideChildren(parent, children, cb) {
+    children.forEach(function (it) {
       it.classList.add('hidden-entity');
     });
+
+    if (!cb) {
+      return;
+    }
+
+    cb(parent);
   }
 
-  function showChildren(array) {
-    array.forEach(function (it) {
+  function showChildren(parent, children, cb) {
+    children.forEach(function (it) {
       it.classList.remove('hidden-entity');
+    });
+
+    if (!cb) {
+      return;
+    }
+
+    cb(parent);
+  }
+
+  function setEventListeners() {
+    accordeons.forEach(function (it) {
+      it.addEventListener('click', onAccordeonClick);
+    });
+  }
+
+  function eraseEventListeners() {
+    accordeons.forEach(function (it) {
+      it.removeEventListener('click', onAccordeonClick);
     });
   }
 
   function onAccordeonClick(evt) {
     if (evt.target.matches('.accordeon__btn')) {
-      contents.forEach(function (it) {
-        if (it === evt.target.nextElementSibling) {
-          if (it.style.maxHeight) {
-            it.style.maxHeight = null;
-          } else {
-            if (isChildrenHidden) {
-              children = Array.from(it.children);
-              showChildren(children);
-            }
+      var isButtonInactive = !evt.target.classList.contains('accordeon__btn--active');
+      var accordeon = evt.target.closest('.accordeon');
 
-            it.style.maxHeight = scrollHeightKeeping[it.id].scrollHeight + UNITS;
-            it.classList.add('opened');
-          }
-
-          var openedContents = accordeon.querySelectorAll('.opened')
-            ? Array.from(accordeon.querySelectorAll('.opened'))
-            : null;
-
-          if (openedContents.length > 1) {
-            openedContents.forEach(function (element) {
-              if (!Object.is(element, it)) {
-                element.style.maxHeight = null;
-
-                var button = element.previousElementSibling
-                  ? element.previousElementSibling
-                  : null;
-
-                if (button) {
-                  if (button.classList.contains('accordeon__btn--active')) {
-                    button.classList.remove('accordeon__btn--active');
-                  }
-                }
-              }
-            });
-          }
-        }
+      Array.from(accordeon.querySelectorAll('.accordeon__btn')).forEach(function (item) {
+        item.classList.remove('accordeon__btn--active');
       });
 
-      evt.target.classList.toggle('accordeon__btn--active');
+      Array.from(accordeon.querySelectorAll('.accordeon__content')).forEach(function (item) {
+        hideContent(item);
+      });
+
+      if (isButtonInactive) {
+        evt.target.classList.toggle('accordeon__btn--active');
+
+        var hasButtonNextElementSibling = evt.target.nextElementSibling
+          ? true
+          : false;
+
+        var isButtonNextElementSiblingContent = evt.target.nextElementSibling.matches('.accordeon__content')
+          ? true
+          : false;
+
+        if (hasButtonNextElementSibling && isButtonNextElementSiblingContent) {
+          var parent = evt.target.nextElementSibling;
+          var children = Array.from(parent.children);
+          var callback = function (element) {
+            element.style.maxHeight = scrollHeightKeeping[element.id].scrollHeight + UNITS;
+          };
+
+          showChildren(parent, children, callback);
+        }
+      }
     }
   }
+
+  var onWindowResize = (function () {
+    var isWorkedOnPreTabletWidth = false;
+
+    return function () {
+      if (!isPreTabletWidth()) {
+        if (!accordeons) {
+          return;
+        }
+
+        accordeons.forEach(function (accordeon) {
+          Array.from(accordeon.querySelectorAll('.accordeon__content')).forEach(function (item) {
+            var children = Array.from(item.children);
+            showChildren(item, children);
+          });
+        });
+
+        eraseEventListeners();
+        isWorkedOnPreTabletWidth = false;
+        return;
+      }
+
+      if (isPreTabletWidth() && !isWorkedOnPreTabletWidth) {
+        setEventListeners();
+        isWorkedOnPreTabletWidth = true;
+      }
+    };
+  })();
+
+  window.addEventListener('resize', onWindowResize);
 })();
 
 

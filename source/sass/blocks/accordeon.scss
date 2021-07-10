@@ -118,7 +118,6 @@
   @media (max-width: $pre-tablet-width) {
     overflow: hidden;
     border-bottom: 1px solid $dcg-2;
-    transition: max-height 0.3s linear;
   }
 
   &--js {
