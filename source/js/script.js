@@ -92,6 +92,133 @@
   var UNITS = 'px';
   var TABLET_WIDTH = 768;
 
+  var accordeons;
+  var scrollHeightKeeping = {};
+
+  window.addEventListener('load', function () {
+    findAccordeons();
+
+    if (isPreTabletWidth()) {
+      storeContentScrollHeight();
+      addJsStyles();
+      setEventListeners();
+    }
+  });
+
+  function isPreTabletWidth() {
+    return document.documentElement.clientWidth < TABLET_WIDTH;
+  }
+
+  function findAccordeons() {
+    var Maybe = window.monad.Maybe;
+    accordeons = new Maybe(document.querySelectorAll('.accordeon'));
+    accordeons = accordeons.operand.length
+      ? Array.from(accordeons.operand)
+      : null;
+  }
+
+  function storeContentScrollHeight() {
+    if (!accordeons) {
+      return;
+    }
+
+    accordeons.forEach(function (it) {
+      Array.from(it.querySelectorAll('.accordeon__content'))
+        .forEach(function (item) {
+          scrollHeightKeeping[item.id] = {
+            scrollHeight: item.scrollHeight
+          };
+      });
+    });
+  }
+
+  function addJsStyles() {
+    if (!accordeons) {
+      return;
+    }
+
+    accordeons.forEach(function (it) {
+      Array.from(it.querySelectorAll('.accordeon__btn'))
+        .forEach(function (item) {
+          item.classList.add('accordeon__btn--js');
+      });
+
+      Array.from(it.querySelectorAll('.accordeon__content'))
+        .forEach(function (item) {
+          hideContent(item);
+      });
+    });
+  }
+
+  function hideContent(item) {
+    var children = Array.from(item.children);
+    var callback = function (item) {
+      item.setAttribute('isChildrenHidden', 'true');
+      item.classList.add('accordeon__content--js');
+    }
+
+    hideChildren(children, callback);
+  }
+
+  function hideChildren(array, cb) {
+    array.forEach(function (it) {
+      it.classList.add('hidden-entity');
+    });
+
+    cb();
+  }
+
+  var onWindowResize = (function () {
+    var isWorkedOnPreTabletWidth = false;
+
+    return function () {
+      if (!isPreTabletWidth()) {
+        eraseEventListeners();
+        isWorkedOnPreTabletWidth = false;
+        return;
+      }
+
+      if (isPreTabletWidth() && !isWorkedOnPreTabletWidth) {
+        setEventListeners();
+        isWorkedOnPreTabletWidth = true;
+      }
+    }
+  })();
+
+  window.addEventListener('resize', onWindowResize);
+
+  function setEventListeners() {
+    Array.from(document.querySelectorAll('.accordeon'))
+	  .forEach(function (it) {
+      it.addEventListener('click', onAccordeonClick);
+    });
+  }
+
+  function eraseEventListeners() {
+    Array.from(document.querySelectorAll('.accordeon'))
+	  .forEach(function (it) {
+      it.removeEventListener('click', onAccordeonClick);
+    });
+  }
+
+  function onAccordeonClick(evt) {
+    if (evt.target.matches('.accordeon__btn') {
+      makeAccordeonClickHandler(evt)();
+    }
+  }
+
+  function makeAccordeonClickHandler(evt) {
+  }
+})();
+
+
+//
+
+
+(function () {
+  var UNITS = 'px';
+  var TABLET_WIDTH = 768;
+
   var viewPort = document.documentElement.clientWidth;
   var children;
   var isChildrenHidden = false;
@@ -104,31 +231,31 @@
     hideContent();
   }
 
-  var onWindowResize = makeHandler();
-  window.addEventListener('resize', onWindowResize);
+  // var onWindowResize = makeHandler();
+  // window.addEventListener('resize', onWindowResize);
 
-  function makeHandler() {
-    var flag = false;
+  // function makeHandler() {
+  //   var flag = false;
 
-    return function () {
-      viewPort = document.documentElement.clientWidth;
+  //   return function () {
+  //     viewPort = document.documentElement.clientWidth;
 
-      if (
-        (viewPort > TABLET_WIDTH || viewPort === TABLET_WIDTH)
-        && flag
-      ) {
-        flag = false;
-      }
+  //     if (
+  //       (viewPort > TABLET_WIDTH || viewPort === TABLET_WIDTH)
+  //       && flag
+  //     ) {
+  //       flag = false;
+  //     }
 
-      if (
-        viewPort < TABLET_WIDTH
-        && !flag
-      ) {
-        hideContent();
-        flag = true;
-      }
-    };
-  }
+  //     if (
+  //       viewPort < TABLET_WIDTH
+  //       && !flag
+  //     ) {
+  //       hideContent();
+  //       flag = true;
+  //     }
+  //   };
+  // }
 
   var Maybe = window.monad.Maybe;
   var accordeon = new Maybe(document.querySelector('.accordeon'));
