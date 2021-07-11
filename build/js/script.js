@@ -21,19 +21,20 @@
 
 // accordeon
 (function () {
-  var UNITS = 'px';
   var TABLET_WIDTH = 768;
 
   var accordeons;
-  var scrollHeightKeeping = {};
 
   window.addEventListener('load', function () {
     findAccordeons();
 
-    if (isPreTabletWidth() && accordeons.length) {
-      storeContentScrollHeight();
-      addJsStyles();
-      setEventListeners();
+    if (accordeons.length) {
+      addButtonsJsStyles();
+
+      if (isPreTabletWidth()) {
+        addContentsJsStyles();
+        setEventListeners();
+      }
     }
   });
 
@@ -49,60 +50,52 @@
       : null;
   }
 
-  function storeContentScrollHeight() {
-    accordeons.forEach(function (it) {
-      Array.from(it.querySelectorAll('.accordeon__content')).forEach(function (item) {
-        scrollHeightKeeping[item.id] = {
-          scrollHeight: item.scrollHeight
-        };
-      });
-    });
-  }
-
-  function addJsStyles() {
+  function addButtonsJsStyles() {
     accordeons.forEach(function (it) {
       Array.from(it.querySelectorAll('.accordeon__btn')).forEach(function (item) {
         item.classList.add('accordeon__btn--js');
       });
+    });
+  }
 
+  function removeButtonsActiveStyles() {
+    accordeons.forEach(function (it) {
+      Array.from(it.querySelectorAll('.accordeon__btn--active')).forEach(function (item) {
+        item.classList.remove('accordeon__btn--active');
+      });
+    });
+  }
+
+  function addContentsJsStyles() {
+    accordeons.forEach(function (it) {
       Array.from(it.querySelectorAll('.accordeon__content')).forEach(function (item) {
         hideContent(item);
       });
     });
   }
 
-  function hideContent(item) {
-    var children = Array.from(item.children);
-    var callback = function (it) {
-      it.classList.add('accordeon__content--js');
-      it.style.maxHeight = null;
-    };
-
-    hideChildren(item, children, callback);
+  function removeContentsJsStyles() {
+    accordeons.forEach(function (it) {
+      Array.from(it.querySelectorAll('.accordeon__content')).forEach(function (item) {
+        showChildren(Array.from(item.children));
+      });
+    });
   }
 
-  function hideChildren(parent, children, cb) {
+  function hideContent(item) {
+    hideChildren(Array.from(item.children));
+  }
+
+  function hideChildren(children) {
     children.forEach(function (it) {
       it.classList.add('hidden-entity');
     });
-
-    if (!cb) {
-      return;
-    }
-
-    cb(parent);
   }
 
-  function showChildren(parent, children, cb) {
+  function showChildren(children) {
     children.forEach(function (it) {
       it.classList.remove('hidden-entity');
     });
-
-    if (!cb) {
-      return;
-    }
-
-    cb(parent);
   }
 
   function setEventListeners() {
@@ -143,12 +136,7 @@
 
         if (hasButtonNextElementSibling && isButtonNextElementSiblingContent) {
           var parent = evt.target.nextElementSibling;
-          var children = Array.from(parent.children);
-          var callback = function (element) {
-            element.style.maxHeight = scrollHeightKeeping[element.id].scrollHeight + UNITS;
-          };
-
-          showChildren(parent, children, callback);
+          showChildren(Array.from(parent.children));
         }
       }
     }
@@ -163,19 +151,15 @@
           return;
         }
 
-        accordeons.forEach(function (accordeon) {
-          Array.from(accordeon.querySelectorAll('.accordeon__content')).forEach(function (item) {
-            var children = Array.from(item.children);
-            showChildren(item, children);
-          });
-        });
-
+        removeButtonsActiveStyles();
+        removeContentsJsStyles();
         eraseEventListeners();
         isWorkedOnPreTabletWidth = false;
         return;
       }
 
       if (isPreTabletWidth() && !isWorkedOnPreTabletWidth) {
+        addContentsJsStyles();
         setEventListeners();
         isWorkedOnPreTabletWidth = true;
       }
