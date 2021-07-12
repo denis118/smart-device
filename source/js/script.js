@@ -281,13 +281,19 @@
   var trigger = new Maybe(document.querySelector('a[id="ring-trigger"]'));
   var modal = new Maybe(document.querySelector('div[id="modal"]'));
   var cross = new Maybe(document.querySelector('button[id="cross"]'));
+  var name = new Maybe(document.querySelector('input[id="name-modal"]'));
 
-  if (trigger.operand && modal.operand && cross.operand) {
+  var focusableElements;
+
+  if (trigger.operand && modal.operand && cross.operand && name.operand) {
     trigger = trigger.operand;
     modal = modal.operand;
     cross = cross.operand;
+    name = name.operand;
 
     trigger.addEventListener('click', onTriggerClick);
+
+    focusableElements = Array.from(document.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), input[type="tel"]:not([disabled]), select:not([disabled])'));
   }
 
   function onTriggerClick(evt) {
@@ -298,6 +304,9 @@
     modal.addEventListener('click', onModalClick);
     document.addEventListener('keydown', onDocumentKeydown);
     cross.addEventListener('click', onCrossClick);
+
+    removeFocus(focusableElements);
+    name.focus();
   }
 
   function onModalClick(evt) {
@@ -322,6 +331,24 @@
     modal.removeEventListener('click', onModalClick);
     document.removeEventListener('keydown', onDocumentKeydown);
     cross.removeEventListener('click', onCrossClick);
+
+    returnFocus(focusableElements);
+  }
+
+  function removeFocus(elements) {
+    elements.forEach(function (it) {
+      if (!it.closest('#modal')) {
+        it.setAttribute('tabindex', '-1');
+      }
+    });
+  }
+
+  function returnFocus(elements) {
+    elements.forEach(function (it) {
+      if (!it.closest('#modal')) {
+        it.removeAttribute('tabindex');
+      }
+    });
   }
 
   function isEscEvent(evt) {

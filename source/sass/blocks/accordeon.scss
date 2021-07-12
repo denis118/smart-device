@@ -32,6 +32,7 @@
 
   a {
     opacity: 0.5;
+    width: max-content;
 
     @include footer-link-active-states;
   }

@@ -134,7 +134,7 @@
     transform: translateX(-50%);
 
     max-width: 490px;
-    width: 25.520833%;
+    width: 490px;
     padding-top: 30px;
     padding-bottom: 36px;
     background-image: none;
@@ -308,20 +308,6 @@
           left: -32px;
         }
       }
-
-      &:hover,
-      &:focus {
-        opacity: 0.7;
-
-        &::before {
-          border-color: $mcg-2;
-          opacity: 1;
-        }
-
-        & + .consultation__check-svg {
-          --icon-color: #{$mcg-2};
-        }
-      }
     }
 
     .consultation__check-svg {
@@ -378,6 +364,20 @@
         display: block;
       }
     }
+
+    &:hover + label,
+    &:focus + label {
+      opacity: 0.7;
+
+      &::before {
+        border-color: $mcg-2;
+        opacity: 1;
+      }
+
+      & + .consultation__check-svg {
+        --icon-color: #{$mcg-2};
+      }
+    }
   }
 }
 
@@ -400,6 +400,10 @@
     color: inherit;
     width: 100%;
     resize: none;
+
+    &::placeholder {
+      color: inherit;
+    }
   }
 
   &--modal {
