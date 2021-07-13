@@ -8,13 +8,16 @@
   font-weight: 400;
   color: $dcg-3;
 
-  display: grid;
-  grid-template-columns: 1fr max-content;
-  grid-template-rows: repeat(2, min-content);
-  grid-auto-flow: column;
+  // display: grid;
+  // grid-template-columns: 1fr max-content;
+  // grid-auto-rows: min-content;
+
+  display: flex;
+  justify-content: flex-end;
 
   @media (min-width: $desktop-width) {
-    column-gap: 10%;
+    width: 70.1133%;
+    // column-gap: 10%;
   }
 
   @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
@@ -43,6 +46,26 @@
     @include centering-padding(90.625%);
     padding-top: 5px;
     padding-bottom: 25px;
+  }
+}
+
+.accordeon__item {
+  @media (min-width: $desktop-width) {
+    flex-grow: 1;
+  }
+
+  &:first-child {
+    @media (min-width: $desktop-width) {
+      flex-basis: 330px;
+    }
+  }
+
+  &:last-child {
+    @media (min-width: $desktop-width) {
+      flex-shrink: 0;
+      flex-basis: 333px;
+      margin-left: 36%;
+    }
   }
 }
 
@@ -130,7 +153,8 @@
 
 .accordeon__site-map {
   @media (min-width: $desktop-width) {
-    @include casual-flex;
+    // @include casual-flex;
+    display: flex;
   }
 }
 
@@ -141,6 +165,12 @@
 
 
   &:nth-child(2n+1) {
+    @media (min-width: $desktop-width) {
+      margin-right: 13.2%;
+    }
+  }
+
+  &:nth-child(2n+2) {
     @media (min-width: $desktop-width) {
       margin-right: 13.2%;
     }

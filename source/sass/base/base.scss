@@ -54,13 +54,7 @@ header {
   .container {
     display: flex;
     align-items: flex-start;
-    width: 100%;
-    padding: 0 25px;
     background-color: transparent;
-
-    @media (max-width: $pre-tablet-width) {
-      padding: 0 17px;
-    }
   }
 }
 
@@ -93,46 +87,25 @@ button {
 
 .container {
   @include centering-margin;
-  max-width: 1420px;
-
-  @media (min-width: $desktop-width) {
-    width: 73.9583%;
-  }
-
-  @media (max-width: $pre-desktop-width) {
-    width: 77.1429%;
-  }
+  width: 100%;
+  max-width: 1461px;
+  padding: 0 25px;
 
   @media (max-width: $pre-tablet-width) {
-    width: 90.625%;
-  }
-
-  &--upper {
-    max-width: 1461px;
-
-    @media (min-width: $desktop-width) {
-      width: 76.09375%;
-    }
-
-    @media (max-width: $pre-desktop-width) {
-      width: 100%;
-    }
+    padding: 0 17px;
   }
 
   &--altered {
-    max-width: 1170px;
+    max-width: 1220px;
 
-    @media (min-width: $desktop-width) {
-      width: 60.9375%;
-    }
-
-    @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
-      width: 93.5065%;
+    @media (max-width: $pre-tablet-width) {
+      padding: 0 15px;
     }
   }
 
   &--modal {
     width: 83.967347%;
+    padding: 0;
   }
 }
 

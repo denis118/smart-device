@@ -1,17 +1,22 @@
 .service-information__box {
   @media (min-width: $desktop-width) {
-    @include centering-padding(73.5417%);
+    // @include centering-padding(73.5417%);
   }
 
   &--upper {
     @media (min-width: $desktop-width) {
-      display: grid;
-      grid-template-columns: min-content 1fr;
-      column-gap: 14.5%;
-
-      padding-top: 65px;
-      padding-bottom: 42px;
       border-bottom: 1px solid $dcg-2;
+    }
+
+    .container {
+      @media (min-width: $desktop-width) {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        // column-gap: 14.5%;
+
+        padding-top: 65px;
+        padding-bottom: 42px;
+      }
     }
   }
 
@@ -22,27 +27,32 @@
     text-transform: uppercase;
     color: $dcg-3;
 
-    display: flex;
-    align-items: center;
-
-    @media (min-width: $desktop-width) {
-      padding-top: 15px;
-      padding-bottom: 13px;
-    }
-
     @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
-      justify-content: space-between;
-
-      @include centering-padding(93.5065%);
-      padding-top: 21px;
-      padding-bottom: 10px;
       border-top: 1px solid $dcg-2;
     }
 
-    @media (max-width: $pre-tablet-width) {
-      flex-direction: column;
-      padding-top: 28px;
-      padding-bottom: 26px;
+    .container {
+      display: flex;
+      align-items: center;
+
+      @media (min-width: $desktop-width) {
+        padding-top: 15px;
+        padding-bottom: 13px;
+      }
+
+      @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
+        justify-content: space-between;
+
+        // @include centering-padding(93.5065%);
+        padding-top: 21px;
+        padding-bottom: 10px;
+      }
+
+      @media (max-width: $pre-tablet-width) {
+        flex-direction: column;
+        padding-top: 28px;
+        padding-bottom: 26px;
+      }
     }
 
     p {
@@ -65,7 +75,7 @@
     align-items: flex-start;
     flex-wrap: nowrap;
 
-    @include centering-padding(93.5065%);
+    // @include centering-padding(93.5065%);
     padding-top: 19px;
     padding-bottom: 24px;
   }
@@ -111,12 +121,9 @@
 }
 
 .service-information__accordeon {
-  // @media (min-width: $desktop-width) {
-  //   grid-column-start: 2;
-  //   grid-column-end: -1;
-  //   grid-row-start: 1;
-  //   grid-row-end: 3;
-  // }
+  @media (min-width: $desktop-width) {
+    margin-left: auto;
+  }
 }
 
 .service-information__rights {
