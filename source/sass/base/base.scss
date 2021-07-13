@@ -32,30 +32,35 @@ body {
 header {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
 
-  display: flex;
-  align-items: flex-start;
   width: 100%;
   background-color: transparent;
 
   @media (min-width: $desktop-width) {
-    @include centering-padding(73.4895%);
     padding-top: 33px;
     padding-bottom: 10px;
   }
 
   @media (max-width: $pre-desktop-width) {
-    @include centering-padding(93.5065%);
     padding-top: 20px;
     padding-bottom: 10px;
   }
 
   @media (max-width: $pre-tablet-width) {
-    @include centering-padding(90.625%);
     padding-top: 17px;
     padding-bottom: 10px;
+  }
+
+  .container {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 25px;
+    background-color: transparent;
+
+    @media (max-width: $pre-tablet-width) {
+      padding: 0 17px;
+    }
   }
 }
 
@@ -100,6 +105,18 @@ button {
 
   @media (max-width: $pre-tablet-width) {
     width: 90.625%;
+  }
+
+  &--upper {
+    max-width: 1461px;
+
+    @media (min-width: $desktop-width) {
+      width: 76.09375%;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      width: 100%;
+    }
   }
 
   &--altered {
