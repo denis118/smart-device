@@ -13,10 +13,10 @@
   // grid-auto-rows: min-content;
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 
   @media (min-width: $desktop-width) {
-    width: 70.1133%;
+    // width: 83%;
     // column-gap: 10%;
   }
 
@@ -50,24 +50,39 @@
 }
 
 .accordeon__item {
-  @media (min-width: $desktop-width) {
-    flex-grow: 1;
-  }
-
-  &:first-child {
+  &--sitemap {
     @media (min-width: $desktop-width) {
-      flex-basis: 330px;
+      width: 53%;
+      margin-right: 15px;
+    }
+
+    a {
+      @media (min-width: $desktop-width) {
+        display: inline;
+      }
     }
   }
 
-  &:last-child {
-    @media (min-width: $desktop-width) {
-      flex-shrink: 0;
-      flex-basis: 333px;
-      margin-left: 36%;
-    }
-  }
+  // &--adress {
+  //   @media (min-width: $desktop-width) {
+
+  //   }
+  // }
 }
+
+// .accordeon__sublist {
+//   &--left {
+//     @media (min-width: $desktop-width) {
+//       width: 243px;
+//     }
+//   }
+
+//   &--right {
+//     @media (min-width: $desktop-width) {
+//       width: 125px;
+//     }
+//   }
+// }
 
 .accordeon__btn {
   font-family:
@@ -139,6 +154,10 @@
 }
 
 .accordeon__content {
+  @media (min-width: $desktop-width) {
+    width: 100%;
+  }
+
   @media (max-width: $pre-tablet-width) {
     overflow: hidden;
     border-bottom: 1px solid $dcg-2;
@@ -154,25 +173,21 @@
 .accordeon__site-map {
   @media (min-width: $desktop-width) {
     // @include casual-flex;
+    width: 100%;
     display: flex;
+    // justify-content: space-between;
   }
 }
 
 .accordeon__list-item {
   @media (min-width: $desktop-width) {
     margin-bottom: 15px;
+    padding-right: 10px;
   }
-
 
   &:nth-child(2n+1) {
     @media (min-width: $desktop-width) {
-      margin-right: 13.2%;
-    }
-  }
-
-  &:nth-child(2n+2) {
-    @media (min-width: $desktop-width) {
-      margin-right: 13.2%;
+      margin-right: 12.3%;
     }
   }
 }
