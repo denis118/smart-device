@@ -12,10 +12,14 @@
       @media (min-width: $desktop-width) {
         display: grid;
         grid-template-columns: min-content 1fr;
-        // column-gap: 14.5%;
 
         padding-top: 60px;
         padding-bottom: 42px;
+      }
+
+      @media (max-width: $pre-desktop-width) {
+        padding-left: 0;
+        padding-right: 0;
       }
     }
   }

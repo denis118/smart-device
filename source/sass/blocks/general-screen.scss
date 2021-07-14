@@ -50,6 +50,7 @@
   letter-spacing: -0.06em;
   color: inherit;
 
+  width: 50%;
   margin-top: 0;
   margin-bottom: 31px;
 
@@ -61,21 +62,22 @@
   }
 
   @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
-    width: 79.1246%;
+    margin-left: 62px;
   }
 
   @media (max-width: $pre-tablet-width) {
     font-size: 40px;
     line-height: 47px;
 
+    width: 100%;
     margin-bottom: 27px;
   }
 
   & ~ * {
-    margin-left: 98px;
+    margin-left: 94px;
 
     @media (max-width: $pre-desktop-width) {
-      margin-left: 52px;
+      margin-left: 114px;
     }
 
     @media (max-width: $pre-tablet-width) {
@@ -144,14 +146,14 @@
   color: inherit;
   background-color: $mcg-1;
 
-  width: 28.6619%;
+  width: 407px;
   margin-top: 0;
   margin-bottom: 174px;
   padding-top: 17px;
   padding-bottom: 19px;
 
   @media (max-width: $pre-desktop-width) {
-    width: 63.8047%;
+    width: 379px;
     margin-bottom: 0;
   }
 

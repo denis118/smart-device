@@ -8,24 +8,18 @@
   font-weight: 400;
   color: $dcg-3;
 
-  // display: grid;
-  // grid-template-columns: 1fr max-content;
-  // grid-auto-rows: min-content;
-
-  display: flex;
-  justify-content: space-between;
-
   @media (min-width: $desktop-width) {
-    // width: 83%;
-    // column-gap: 10%;
+    display: flex;
+    justify-content: space-between;
   }
 
   @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
+    display: grid;
     grid-template-columns: max-content 1fr;
     column-gap: 19.8%;
 
     @include centering-padding(93.5065%);
-    padding-top: 37px;
+    padding-top: 35px;
     padding-bottom: 34px;
   }
 
