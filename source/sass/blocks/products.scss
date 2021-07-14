@@ -77,7 +77,6 @@
   }
 
   @media (max-width: $pre-tablet-width) {
-    max-width: 290px;
     margin-bottom: 30px;
   }
 
@@ -193,7 +192,8 @@
   }
 
   @media (max-width: $pre-tablet-width) {
-    width: 21.724138%;
+    width: 63px;
+    height: 63px;
   }
 
   .background {
@@ -206,21 +206,26 @@
 }
 
 .products__padded-box {
-  @include padded-box;
+  @media (min-width: $tablet-width) {
+    @include padded-box;
+  }
 
   @media (min-width: $desktop-width) {
     padding-bottom: $ratio-large;
   }
 
-  @media (max-width: $pre-desktop-width) {
+  @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
     padding-bottom: $ratio-medium;
   }
 
-  @media (max-width: $pre-tablet-width) {
-    padding-bottom: $ratio-small;
-  }
-
   img {
-    @include content-in-padded-box;
+    @media (min-width: $tablet-width) {
+      @include content-in-padded-box;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      width: 100%;
+      height: 256px;
+    }
   }
 }

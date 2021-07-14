@@ -1,8 +1,4 @@
 .service-information__box {
-  @media (min-width: $desktop-width) {
-    // @include centering-padding(73.5417%);
-  }
-
   &--upper {
     @media (min-width: $desktop-width) {
       border-bottom: 1px solid $dcg-2;
@@ -46,8 +42,6 @@
 
       @media (min-width: $tablet-width) and (max-width: $pre-desktop-width) {
         justify-content: space-between;
-
-        // @include centering-padding(93.5065%);
         padding-top: 21px;
         padding-bottom: 10px;
       }

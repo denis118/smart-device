@@ -44,6 +44,10 @@
 }
 
 .accordeon__item {
+  @media (max-width: $pre-tablet-width) {
+    width: 100%;
+  }
+
   &--sitemap {
     @media (min-width: $desktop-width) {
       width: 53%;
@@ -56,27 +60,7 @@
       }
     }
   }
-
-  // &--adress {
-  //   @media (min-width: $desktop-width) {
-
-  //   }
-  // }
 }
-
-// .accordeon__sublist {
-//   &--left {
-//     @media (min-width: $desktop-width) {
-//       width: 243px;
-//     }
-//   }
-
-//   &--right {
-//     @media (min-width: $desktop-width) {
-//       width: 125px;
-//     }
-//   }
-// }
 
 .accordeon__btn {
   font-family:
@@ -166,10 +150,8 @@
 
 .accordeon__site-map {
   @media (min-width: $desktop-width) {
-    // @include casual-flex;
     width: 100%;
     display: flex;
-    // justify-content: space-between;
   }
 }
 
