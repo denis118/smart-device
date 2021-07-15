@@ -30,11 +30,26 @@
     padding-bottom: 163px;
   }
 
+  // @media (max-width: $pre-tablet-width) {
+  //   background-image: $general-bg-mobile;
+
+  //   @media (min-resolution: 2dppx) {
+  //     background-image: $general-bg-mobile-2x;
+  //   }
+
+  //   padding-top: 286px;
+  //   padding-bottom: 70px;
+  // }
+
   @media (max-width: $pre-tablet-width) {
-    background-image: $general-bg-mobile;
+    background-image: $general-bg-mask-mobile, $general-bg-mobile;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, top right;
+    background-size: cover, 294px 437px;
+
 
     @media (min-resolution: 2dppx) {
-      background-image: $general-bg-mobile-2x;
+      background-image: $general-bg-mask-mobile-2x, $general-bg-mobile-2x;
     }
 
     padding-top: 286px;

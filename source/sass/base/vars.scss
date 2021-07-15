@@ -38,7 +38,7 @@ $dcg-8: rgba(0, 0, 0, 0.8);
 // images
 $ratio-large: 167.567567%;
 $ratio-medium: 35.555556%;
-$ratio-small: 88.265862%;
+// $ratio-small: 88.265862%;
 
 
 //
@@ -52,8 +52,11 @@ $general-bg-desktop-2x: url("../img/bg/main-block-bg-desktop@2x.jpg");
 $general-bg-tablet: url("../img/bg/main-block-bg-tablet.jpg");
 $general-bg-tablet-2x: url("../img/bg/main-block-bg-tablet@2x.jpg");
 
-$general-bg-mobile: url("../img/bg/main-block-bg-mobile.jpg");
-$general-bg-mobile-2x: url("../img/bg/main-block-bg-mobile@2x.jpg");
+$general-bg-mobile: url("../img/bg/main-block-bg-mobile.png");
+$general-bg-mobile-2x: url("../img/bg/main-block-bg-mobile@2x.png");
+
+$general-bg-mask-mobile: url("../img/bg/main-block-bg-mask-mobile.png");
+$general-bg-mask-mobile-2x: url("../img/bg/main-block-bg-mask-mobile@2x.png");
 
 
 // section-wrapper
