@@ -1,12 +1,25 @@
+//
 // viewports
+//
+
+// global
 $desktop-width: 1024px;
 $pre-desktop-width: 1023px;
 $tablet-width: 768px;
 $pre-tablet-width: 767px;
 $mobile-width: 320px;
 
+
+// local
+$aux-viewport-for-rights: 1050px;
+
+
+//
 // width limit
+//
+
 $content-max-width: 1920px;
+
 
 //
 // colors
