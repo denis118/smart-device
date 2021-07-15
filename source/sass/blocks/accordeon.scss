@@ -152,19 +152,24 @@
   @media (min-width: $desktop-width) {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: $aux-viewport-for-sitemap) {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-auto-rows: min-content;
+    column-gap: 65px;
   }
 }
 
 .accordeon__list-item {
   @media (min-width: $desktop-width) {
-    margin-bottom: 15px;
     padding-right: 10px;
   }
 
-  &:nth-child(2n+1) {
-    @media (min-width: $desktop-width) {
-      margin-right: 12.3%;
-    }
+  @media (max-width: $aux-viewport-for-sitemap - 1px) {
+    margin-right: 12.3%;
   }
 }
 
