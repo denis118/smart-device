@@ -272,6 +272,7 @@
 
   &--consent {
     position: relative;
+    order: 1;
 
     @media (min-width: $desktop-width) {
       width: 230px;
