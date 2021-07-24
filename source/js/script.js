@@ -22,6 +22,7 @@
 // accordeon
 (function () {
   var TABLET_WIDTH = 768;
+  var UNITS = 'px';
 
   var accordeons;
 
@@ -58,14 +59,6 @@
     });
   }
 
-  function removeButtonsActiveStyles() {
-    accordeons.forEach(function (it) {
-      Array.from(it.querySelectorAll('.accordeon__btn--active')).forEach(function (item) {
-        item.classList.remove('accordeon__btn--active');
-      });
-    });
-  }
-
   function addContentsJsStyles() {
     accordeons.forEach(function (it) {
       Array.from(it.querySelectorAll('.accordeon__content')).forEach(function (item) {
@@ -77,25 +70,17 @@
   function removeContentsJsStyles() {
     accordeons.forEach(function (it) {
       Array.from(it.querySelectorAll('.accordeon__content')).forEach(function (item) {
-        showChildren(Array.from(item.children));
+        showContent(item);
       });
     });
   }
 
   function hideContent(item) {
-    hideChildren(Array.from(item.children));
+    item.classList.add('accordeon__content--js');
   }
 
-  function hideChildren(children) {
-    children.forEach(function (it) {
-      it.classList.add('hidden-entity');
-    });
-  }
-
-  function showChildren(children) {
-    children.forEach(function (it) {
-      it.classList.remove('hidden-entity');
-    });
+  function showContent(item) {
+    item.classList.remove('accordeon__content--js');
   }
 
   function setEventListeners() {
@@ -120,7 +105,7 @@
       });
 
       Array.from(accordeon.querySelectorAll('.accordeon__content')).forEach(function (item) {
-        hideContent(item);
+        item.style.maxHeight = null;
       });
 
       if (isButtonInactive) {
@@ -135,8 +120,13 @@
           : false;
 
         if (hasButtonNextElementSibling && isButtonNextElementSiblingContent) {
-          var parent = evt.target.nextElementSibling;
-          showChildren(Array.from(parent.children));
+          var content = evt.target.nextElementSibling;
+
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + UNITS;
+          }
         }
       }
     }
@@ -151,7 +141,6 @@
           return;
         }
 
-        removeButtonsActiveStyles();
         removeContentsJsStyles();
         eraseEventListeners();
         isWorkedOnPreTabletWidth = false;
