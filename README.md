@@ -13,4 +13,4 @@
 ## Все разработка ведёться в директории `source`
 ## Итоговый код попадает в директорию `build`
 
-Данный текст взят из README.md [https://github.com/tsergeytovarov/gulp-template]
+[Данный текст взят из README.md](https://github.com/tsergeytovarov/gulp-template)
